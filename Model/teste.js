@@ -1,3 +1,3 @@
-module.exports.teste = function(name){
+module.exports.sla = function(name){
     console.log(name)
 }
