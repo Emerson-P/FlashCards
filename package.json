@@ -2,6 +2,8 @@
   "dependencies": {
     "@google/generative-ai": "^0.13.0",
     "consign": "^0.1.6",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mysql2": "^3.10.1",
+    "sequelize": "^6.37.3"
   }
 }
