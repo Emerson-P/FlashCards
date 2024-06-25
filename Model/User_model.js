@@ -45,14 +45,42 @@ class user_tabela {
             where,
         })
 
-        console.log(select)
+        console.log(select) 
     }
+
+    async update(attributet,where){
+        await this.user_tabela.sync();
+        
+        const select = await this.user_tabela.update(attributet,{where})
+
+ 
+    }
+
+    async delete(where){
+        await this.user_tabela.sync();
+        
+        const select = await this.user_tabela.destroy({where})
+
+ 
+    }
+
+
 }
 
 var teste = new user_tabela()
 
-teste.insert()
-teste.select(['id','nome'],)
+teste.insert('emerson','teste','123')
+var attributes = {
+    nome:'claudio'
+}
+var where = {
+    id:1
+}
+
+// teste.update(attributes,where)
+// teste.select(['id','nome'],{id:1})
+// teste.delete(where)
+
 module.exports = function(){
     return user_tabela()
 }
