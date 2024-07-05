@@ -44,14 +44,11 @@ class user_tabela {
         
         const select = await this.user_tabela.findAll({
             attributes,
-            where,
+            where
         })
 
-        if(select == ''){
-            return false
-        }else{
-            return true
-        }
+        
+        return select
     }
 
     async update(attributet,where){

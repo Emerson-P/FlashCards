@@ -26,13 +26,34 @@ module.exports.dadosCad = function(app,req,res){
 }
 
 module.exports.dadosLog = function(app,req,res){
+
+
     const tabela_user = app.Model.User_model
 
-   if(tabela_user.select(['id'],[10])){
-    res.send('certinho pai')
-   }else{
-    res.send('erradinho pai')
-   }
+    var atribute = ['nome','email','senha','id']
+    var where = {
+        'senha': req.body.senha
+    }
+
+    tabela_user.select(atribute,where)
+    .then((resposta) => {
+        
+        if(resposta[0] == undefined){
+            res.send('Acesso negado')
+        }else{
+           
+            console.log(resposta[0].dataValues)
+            
+
+            res.send('ta liberado')
+            
+        }
+
+    })
+    // console.log(dados)
+    
+    
+//    
     
    
 }
