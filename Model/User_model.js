@@ -47,7 +47,11 @@ class user_tabela {
             where,
         })
 
-        console.log(select) 
+        if(select == ''){
+            return false
+        }else{
+            return true
+        }
     }
 
     async update(attributet,where){
@@ -70,6 +74,4 @@ class user_tabela {
 }
 
 
-module.exports = function(){
-    return user_tabela
-}
+module.exports = new user_tabela()

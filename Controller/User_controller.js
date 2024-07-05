@@ -1,24 +1,38 @@
-//Arquivo com funçao de controllar as açoes internas do sistema
+const path = require('path')
+//Variavel criada para encurtar o caminho do diretorio
+const dir_html = path.join(__dirname,'..','View','html')
 
-module.exports.acao =  function(rota,response){
-    const path = require('path')
+
+
+
+module.exports.cadastro = function(app,req,res){
+
+    const banco = app.Model.User_model
+    res.sendFile(dir_html+'/cadastrar.html')
+}
+
+module.exports.login = function(app,req,res){
     
-    //Variavel criada para encurtar o caminho do diretorio
-    const dir_html = path.join(__dirname,'..','View','html')
+    res.sendFile(dir_html+'/login.html')
+}
 
-    //A rota é passada ao chamar a funçaõ em routers
-    switch (rota) {
-        
-        case 'login':
-            //Aqui é decidido o que sera feito caso o usuario acesse a pagina
+module.exports.dadosCad = function(app,req,res){
+    const tabela_user = app.Model.User_model
+   
+    tabela_user.insert(req.body.nome,req.body.email,req.body.senha)//Fazer verificação se funcionou
 
-            //Envia um arquivo html como resposta final
-            response.sendFile(dir_html+'/login.html')
-            
-            break;
+
+    res.sendFile(dir_html+'/login.html')
+}
+
+module.exports.dadosLog = function(app,req,res){
+    const tabela_user = app.Model.User_model
+
+   if(tabela_user.select(['id'],[10])){
+    res.send('certinho pai')
+   }else{
+    res.send('erradinho pai')
+   }
     
-        default:
-
-            break;
-    }
+   
 }

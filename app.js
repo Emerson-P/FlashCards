@@ -2,12 +2,20 @@ const express = require('express');
 const app = express();
 const consign = require('consign');
 
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json())
+
 // Usando consign para conenctar os arquivos importantes do MVC
+
 consign()
+    .include('/Controller') 
     .include('/Model')
-    .include('/Controller/User_controller.js')
-    .include('/Router/User_routers.js')
+    .include('/Router')
+   
     .into(app)
+
 
 //Serve arquivo estaticos para o servidor
 app.use(express.static("View"));

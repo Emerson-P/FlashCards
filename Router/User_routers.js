@@ -1,10 +1,16 @@
-//Arquivo responsavel por setar as rotas do site
-module.exports = (app) => {
-    //Chama uma funçao que dispara uma resposta dependendo da pagina que o  usuario acessar
-    const control = app.Controller.User_controller.acao
+module.exports = function(app){
 
-    app.get('/login', (req,res) =>{
-        //'login' e a acao a ser disparada, e res e usado para enviar um arquivo html como resposta
-        control('login',res)
+    app.get('/cadastrar',function(req,res){
+        app.Controller.User_controller.cadastro(app,req,res)
     })
+    app.get('/login',function(req,res){
+        app.Controller.User_controller.login(app,req,res)
+    })
+    app.post('/dadosCadastro',function(req,res){
+        app.Controller.User_controller.dadosCad(app,req,res)
+    })
+    app.post('/dadosLogin',function(req,res){
+        app.Controller.User_controller.dadosLog(app,req,res)
+    })
+
 }
