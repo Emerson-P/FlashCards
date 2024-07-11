@@ -6,7 +6,7 @@ const db = require('../db');
 class deck_tabela {
     constructor(){
         //Definção da tabela acessada
-        this.deck_tabela = db.define('deck',{
+        this.deck_tabela = db.define('decks',{
             id:{
                 type:Sequelize.INTEGER,
                 autoIncrement:true,
@@ -31,12 +31,12 @@ class deck_tabela {
         });
     }
 
-    async insert(nome,id_users){
+    async insert(nome,id_user){
         await this.deck_tabela.sync();
 
         await this.deck_tabela.create({
             nome,
-            id_users
+            id_user
         })
 
     }

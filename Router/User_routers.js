@@ -1,21 +1,21 @@
 module.exports = function(app){
 
     const jwt = require('jsonwebtoken')
-
     const secret = 'joaozin'
 
 
     function verifyJWT(req,res,next){
-        const token = req.headers['x-acess-token']
-        jwt.verify(token,secret,(err,decoded) => {
-            // if(err) return res.status(401).end();
-            if(err){
-                console.log('errro')
-                res.end()}
 
-            req.userId = decoded.userId;
-            next();
-        })
+        const token = req.cookies.auth
+
+        try{
+            const decoded = jwt.verify(token,secret);
+            req.userID = decoded.id
+        }
+        catch(err){
+            res.status(403).send('Token inválido')
+        }
+        next();
     }
 
     app.get('/cadastrar',function(req,res){
@@ -32,13 +32,14 @@ module.exports = function(app){
         app.Controller.User_controller.dadosLog(app,req,res)
     })
 
-    app.get('/dadosLogin',function(req,res){
-        app.Controller.User_controller.criarDeck(app,req,res)
+    app.get('/deck',verifyJWT,function(req,res){
+        
+        app.Controller.User_controller.deck(app,req,res)
     })
     
-    app.get('/criarDeck',verifyJWT,function(req,res){
+    app.post('/criarDeck',verifyJWT,function(req,res){
 
-        console.log(req.userId + 'ahhhhhhhhhhhh')
+        
         app.Controller.User_controller.criarDeck(app,req,res)
     })
 }

@@ -46,29 +46,40 @@ module.exports.dadosLog = function(app,req,res){
 
 
         }else{
-            // console.log(resposta[0]['dataValues'])
+            
 
             var secret = 'joaozin'
 
-            // var valor = {
-            //     'nome':resposta[0]['dataValues']['nome'],
-            //     'email':resposta[0]['dataValues']['email'],
-            //     'id':resposta[0]['dataValues']['id']
-            // }
+            var valor = {
+                'nome':resposta[0]['dataValues']['nome'],
+                'email':resposta[0]['dataValues']['email'],
+                'id':resposta[0]['dataValues']['id']
+            }
             
-            const token = jwt.sign({userId:1},secret,{expiresIn:600})
+            const token = jwt.sign(valor,secret,{expiresIn:600})
             
 
-            res.json(token)
-            // console.log(req.headers)
-            // res.sendFile(dir_html+'/decks.html')
-            // res.redirect('/deck')
+            res.cookie('auth',token, { httpOnly: true, secure: true })
             
+            res.redirect('/deck')
+    
         }
 
     })
 }
 
+module.exports.deck = function(app,req,res){
+    
+    res.sendFile(dir_html+'/decks.html')
+}
+
 module.exports.criarDeck = function(app,req,res){
-    res.send('teste')
+
+    console.log(req.userID + ' ahhhhhh')
+
+    const tabela_decks = app.Model.Decks_model
+
+    tabela_decks.insert('teste',5)
+    res.send('cero')
+    
 }
