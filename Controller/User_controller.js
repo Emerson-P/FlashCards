@@ -1,8 +1,7 @@
 const path = require('path')
 //Variavel criada para encurtar o caminho do diretorio
 const dir_html = path.join(__dirname,'..','View','html')
-
-
+const jwt = require('jsonwebtoken')
 
 
 module.exports.cadastro = function(app,req,res){
@@ -27,10 +26,9 @@ module.exports.dadosCad = function(app,req,res){
 
 module.exports.dadosLog = function(app,req,res){
 
-
     const tabela_user = app.Model.User_model
 
-    var atribute = ['nome','email','senha','id']
+    var atribute = ['nome','email','id']
     var where = {
         'senha': req.body.senha
     }
@@ -38,22 +36,38 @@ module.exports.dadosLog = function(app,req,res){
     tabela_user.select(atribute,where)
     .then((resposta) => {
         
+
+
         if(resposta[0] == undefined){
+
             res.send('Acesso negado')
+
+
+
         }else{
-           
-            console.log(resposta[0].dataValues)
+            // console.log(resposta[0]['dataValues'])
+
+            var secret = 'joaozin'
+
+            // var valor = {
+            //     'nome':resposta[0]['dataValues']['nome'],
+            //     'email':resposta[0]['dataValues']['email'],
+            //     'id':resposta[0]['dataValues']['id']
+            // }
+            
+            const token = jwt.sign({userId:1},secret,{expiresIn:600})
             
 
-            res.send('ta liberado')
+            res.json(token)
+            console.log(req.headers)
+            // res.sendFile(dir_html+'/decks.html')
+            // res.redirect('/deck')
             
         }
 
     })
-    // console.log(dados)
-    
-    
-//    
-    
-   
+}
+
+module.exports.criarDeck = function(app,req,res){
+
 }

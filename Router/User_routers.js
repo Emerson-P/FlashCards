@@ -1,5 +1,23 @@
 module.exports = function(app){
 
+    const jwt = require('jsonwebtoken')
+
+    const secret = 'joaozin'
+
+
+    function verifyJWT(req,res,next){
+        const token = req.headers['x-acess-token']
+        jwt.verify(token,secret,(err,decoded) => {
+            // if(err) return res.status(401).end();
+            if(err){
+                console.log('errro')
+                res.end()}
+
+            req.userId = decoded.userId;
+            next();
+        })
+    }
+
     app.get('/cadastrar',function(req,res){
         app.Controller.User_controller.cadastro(app,req,res)
     })
@@ -13,4 +31,10 @@ module.exports = function(app){
         app.Controller.User_controller.dadosLog(app,req,res)
     })
 
+    
+    app.get('/criarDeck',verifyJWT,function(req,res){
+
+        console.log(req.userId + 'ahhhhhhhhhhhh')
+        app.Controller.User_controller.criarDeck(app,req,res)
+    })
 }
