@@ -27,10 +27,14 @@ module.exports = function(app){
     app.post('/dadosCadastro',function(req,res){
         app.Controller.User_controller.dadosCad(app,req,res)
     })
+
     app.post('/dadosLogin',function(req,res){
         app.Controller.User_controller.dadosLog(app,req,res)
     })
 
+    app.get('/dadosLogin',function(req,res){
+        app.Controller.User_controller.criarDeck(app,req,res)
+    })
     
     app.get('/criarDeck',verifyJWT,function(req,res){
 
