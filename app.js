@@ -8,6 +8,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json())
 app.use(cookieParser());
+app.set('view engine','ejs');
 // Usando consign para conenctar os arquivos importantes do MVC
 
 consign()

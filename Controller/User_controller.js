@@ -7,12 +7,12 @@ const jwt = require('jsonwebtoken')
 module.exports.cadastro = function(app,req,res){
 
    
-    res.sendFile(dir_html+'/cadastrar.html')
+    res.render(dir_html+'/cadastrar')
 }
 
 module.exports.login = function(app,req,res){
     
-    res.sendFile(dir_html+'/login.html')
+    res.render(dir_html+'/login')
 }
 
 module.exports.dadosCad = function(app,req,res){
@@ -70,16 +70,16 @@ module.exports.dadosLog = function(app,req,res){
 
 module.exports.deck = function(app,req,res){
     
-    res.sendFile(dir_html+'/decks.html')
+    const data = [1,2,3,4]
+    res.render('../View/html/decks', {data})
 }
 
 module.exports.criarDeck = function(app,req,res){
 
-    console.log(req.userID + ' ahhhhhh')
+    
 
     const tabela_decks = app.Model.Decks_model
 
-    tabela_decks.insert('teste',5)
-    res.send('cero')
-    
+    tabela_decks.insert(req.body.nome,req.userID)
+    res.redirect('/deck')
 }

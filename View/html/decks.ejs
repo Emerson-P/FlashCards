@@ -15,8 +15,13 @@
         <button>enviar</button>
     </form>
 
+    <% data.forEach((value) => { %>
+        <h3> <%= value %></h3>
+    <% }); %>
+
+    
     <script>
-        console.log(window.sessionStorage.getItem('user'))
+        // console.log(window.sessionStorage.getItem('user'))
     </script>
 </body>
 </html>
