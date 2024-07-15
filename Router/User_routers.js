@@ -32,14 +32,24 @@ module.exports = function(app){
         app.Controller.User_controller.dadosLog(app,req,res)
     })
 
-    app.get('/deck',verifyJWT,function(req,res){
+    app.get('/decks',verifyJWT,function(req,res){
         
-        app.Controller.User_controller.deck(app,req,res)
+        app.Controller.User_controller.decks(app,req,res)
     })
     
     app.post('/criarDeck',verifyJWT,function(req,res){
-
-        
         app.Controller.User_controller.criarDeck(app,req,res)
+    })
+    app.get('/deck',verifyJWT,function(req,res){
+        app.Controller.User_controller.deck(app,req,res)
+    })
+    app.post('/criarCard',verifyJWT,function(req,res){
+        app.Controller.User_controller.criarCard(app,req,res)
+    })
+    app.get('/cardIA',verifyJWT,function(req,res){
+        app.Controller.User_controller.cardIA(app,req,res)
+    })
+    app.post('/gerarIA',verifyJWT,function(req,res){
+        app.Controller.User_controller.gerarIA(app,req,res)
     })
 }

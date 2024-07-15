@@ -3,48 +3,48 @@ const db = require('../db');
 
 
 
-class deck_tabela {
+class card_tabela {
     constructor(){
         //Definção da tabela acessada
-        this.deck_tabela = db.define('decks',{
+        this.card_tabela = db.define('cards',{
             id:{
                 type:Sequelize.INTEGER,
                 autoIncrement:true,
                 allowNull:false,
                 primaryKey:true
             },
-            nome:{
+            
+            titulo:{
                 type:Sequelize.TEXT,
                 allowNull:false,
             },
-            id_user:{
+            desc:{
+                type:Sequelize.TEXT,
+                allowNull:false,
+            },
+            id_deck:{
                 type:Sequelize.INTEGER,
                 allowNull:false,
                 foreignkey:true
-            },
-            num_cards:{
-                type:Sequelize.INTEGER
-            },
-            tags:{
-                type:Sequelize.TEXT
             }
         });
     }
 
-    async insert(nome,id_user){
-        await this.deck_tabela.sync();
+    async insert(titulo,desc,id_deck){
+        await this.card_tabela.sync();
 
-        await this.deck_tabela.create({
-            nome,
-            id_user
+        await this.card_tabela.create({
+            titulo,
+            desc,
+            id_deck
         })
 
     }
 
     async select(attributes,where){
-        await this.deck_tabela.sync();
+        await this.card_tabela.sync();
         
-        const select = await this.deck_tabela.findAll({
+        const select = await this.card_tabela.findAll({
             attributes,
             where
         })
@@ -73,4 +73,4 @@ class deck_tabela {
 }
 
 
-module.exports = new deck_tabela()
+module.exports = new card_tabela()

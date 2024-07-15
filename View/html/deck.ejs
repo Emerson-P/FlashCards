@@ -5,25 +5,26 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>decks</h1>
-    <a href="/bliblioteca">bliblioteca</a>
 
-    <form action="/criarDeck" method="post">
-        <h1>Nome do deck</h1>
-        <input type="text" name="nome">
+    <h1>deck</h1>
 
-        <button>enviar</button>
+    <form action="/criarCard?id=<%= data['id'] %>" method="post">
+        <input type="text" name="titulo">
+        <input type="text" name="desc">
+        <button>Enviar</button>
     </form>
+
+    <a href="/cardIA?id=<%= data['id'] %>">Gerar cards IA</a>
 
     <table>
 
         <tr>
-            <th>nome</th>
-            <th>numero de cards</th>
+            <th>titulo</th>
+            <th>descrição</th>
 
         </tr>
         
-            <% data.forEach(element => { %>
+            <% data['lista'].forEach(element => { %>
 
                     
                     <tr id="<%= element[2] %>" style="border: 2px solid black;" onclick="redirect(this.id)">
@@ -34,15 +35,5 @@
                     <% }); %>
         
     </table>
-    
-    
-
-    <script>
-
-        function redirect(params) {
-            window.location.href = `/deck?id=${params}`
-        }
-
-    </script>
 </body>
 </html>
