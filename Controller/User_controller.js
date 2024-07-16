@@ -169,13 +169,47 @@ module.exports.gerarIA = function(app,req,res){
             if(element.includes('Título') || element.includes('Descrição')){
                 var card = element.replaceAll('**','')
                 card = card.replaceAll('\n','')
-
+                card = card.replaceAll('Título','')
+                card = card.replaceAll(':','')
                 cards.push(card.split("Descrição"))
                 
             }
         })
-        res.send(cards)
+        const id = req.url.replace('/gerarIA?id=','')
+        const data = {
+            id: id,
+            cards:cards
+            }
+        res.render(dir_html+'/selCard', {data})
     })
+}
 
-    
+module.exports.addCardIa = function (app,req,res) {
+    const id = req.url.replace('/addCardIa?id=','')
+
+    const decks = app.Model.Decks_model
+    const cards = app.Model.Cards_model
+
+    let index = 1
+    while (index<8) {
+        
+        let titulo = `titulo${index}`
+        let dec = `desc${index}`
+        if(req.body[titulo] && req.body[dec] ){
+            cards.insert(req.body[titulo],req.body[dec],id)
+            var updt = index
+        }
+        index +=1
+    }
+    if (updt >0) {
+        let atribute = {
+            num_cards:updt
+        } 
+        let where = {
+            id:id
+        }
+        decks.update(atribute,where)
+    }
+
+    res.send('teste')
 }

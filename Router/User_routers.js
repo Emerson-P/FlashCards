@@ -52,4 +52,9 @@ module.exports = function(app){
     app.post('/gerarIA',verifyJWT,function(req,res){
         app.Controller.User_controller.gerarIA(app,req,res)
     })
+    
+    app.post('/addCardIa',verifyJWT,function(req,res){
+        app.Controller.User_controller.addCardIa(app,req,res)
+    })
 }
+

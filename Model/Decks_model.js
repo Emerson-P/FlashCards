@@ -36,6 +36,7 @@ class deck_tabela {
 
         await this.deck_tabela.create({
             nome,
+            num_cards : 0 ,
             id_user
         })
 
@@ -53,13 +54,13 @@ class deck_tabela {
         return select
     }
 
-    // async update(attributet,where){
-    //     await this.user_tabela.sync();
+    async update(attributet,where){
+        await this.deck_tabela.sync();
+        await this.deck_tabela.increment(attributet,{ where})
         
-    //     const select = await this.user_tabela.update(attributet,{where})
-
  
-    // }
+    }
+
 
     // async delete(where){
     //     await this.user_tabela.sync();
