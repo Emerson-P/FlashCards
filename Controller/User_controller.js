@@ -58,7 +58,7 @@ module.exports.dadosLog = function(app,req,res){
                 'id':resposta[0]['dataValues']['id']
             }
             
-            const token = jwt.sign(valor,secret,{expiresIn:1200})
+            const token = jwt.sign(valor,secret,{expiresIn:2400})
             
 
             res.cookie('auth',token, { httpOnly: true, secure: true })
@@ -268,3 +268,8 @@ module.exports.DelDeck = function (app,req,res) {
     res.json({mensagem:'cero'})
     
 }
+module.exports.Edit = function (app,req,res) {
+
+    
+}
+

@@ -22,33 +22,47 @@
             <th>titulo</th>
             <th>descrição</th>
             <th></th>
+            <th></th>
         </tr>
         
             <% data['lista'].forEach(element => { %>
 
                     
-                    <tr id="<%= element[2] %>" style="border: 2px solid black;">
-                        <th> <h4> <%= element[0] %> </h4> </th>
-                        <th> <h4> <%= element[1] %> </h4> </th>
-                        <th>
-                            <button id="<%= element[2] %>"onclick="Del(this.id)">Deletar</button>
-                        </th>
+                    <tr id="tr<%= element[2] %>" style="border: 2px solid black;">
+                        <form action="/teste">
+
                         
+                        <th > 
+                            <input id="tit<%= element[2] %>" disabled style="border: none; width: 100px;" type="text" value="<%= element[0] %>"> 
+                        </th>
+
+                        <th >  <input id="desc<%= element[2] %>" disabled style="border: none; width: 700px;" type="text" value="<%= element[1] %>">  </th>
+                        <th >
+                            <button type="button" id="del<%= element[2] %>"onclick="Del(this.id)">Deletar</button>
+                        </th>
+                        <th>
+                            <button type="button"  id="<%= element[2] %>" onclick="Edit(this.id)" >Editar</button>
+                        </th>
+                        </form>
                     </tr>
                                
                     <% }); %>
         
+
+
+       
     </table>
 
     <script>
 
         function Del(params) {
 
+
             fetch("/Del?id=<%= data['id'] %>", {
 
                 method: "POST",
                 body: JSON.stringify({
-                    id_card: params,
+                    id_card: params.replace('del',''),
                     title: "Card a deletar",
                     completed: false
                 }),
@@ -56,11 +70,22 @@
                         "Content-type": "application/json; charset=UTF-8"
                     }
             })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
+            
             location.reload()
         }
 
+        function Edit(params) {
+            let titulo = document.getElementById(`tit${params}`)
+            let dec = document.getElementById(`desc${params}`)
+            let btn = document.getElementById(`${params}`)
+
+            titulo.removeAttribute('disabled')
+            dec.removeAttribute('disabled')
+            
+            btn.innerHTML = 'Alterar'
+            // btn.setAttribute('type','submit')
+
+        }
     </script>
 </body>
 </html>
