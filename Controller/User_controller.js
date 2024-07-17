@@ -3,6 +3,7 @@ const path = require('path')
 const dir_html = path.join(__dirname,'..','View','html')
 const jwt = require('jsonwebtoken')
 const { or } = require('sequelize')
+const { Module } = require('module')
 
 
 module.exports.cadastro = function(app,req,res){
@@ -76,7 +77,7 @@ module.exports.decks = function(app,req,res){
     const tabela_decks = app.Model.Decks_model
 
     
-    var atribute = ['id','nome','num_cards','tags']
+    var atribute = ['id','nome','num_cards']
     var where = {
         id_user:req.userID
     }
@@ -100,11 +101,16 @@ module.exports.decks = function(app,req,res){
 
 module.exports.criarDeck = function(app,req,res){
 
-    
-
     const tabela_decks = app.Model.Decks_model
+    const tabela_tags = app.Model.tags_model
+
+  
+   
 
     tabela_decks.insert(req.body.nome,req.userID)
+
+
+    
 
     res.redirect('/decks')
 }
@@ -133,17 +139,26 @@ module.exports.deck = function(app,req,res){
         id: id,
         lista
         }
+        console.log(lista,id)
         res.render(dir_html+'/deck', {data})
     })
     
 }
 module.exports.criarCard = function(app,req,res){
 
+    const decks = app.Model.Decks_model
     const id = req.url.replace('/criarCard?id=','')
     const cards = app.Model.Cards_model
 
     cards.insert(req.body.titulo,req.body.desc,id)
-    
+    let atribute = {
+        num_cards:1
+    } 
+    let where = {
+        id:id
+    }
+    decks.update(atribute,where)
+
     var url_complete = '/deck?id='+id
     res.redirect(url_complete)
     
@@ -211,5 +226,45 @@ module.exports.addCardIa = function (app,req,res) {
         decks.update(atribute,where)
     }
 
-    res.send('teste')
+    res.redirect('/cardIA?id='+id)
+}
+module.exports.Del = function (app,req,res) {
+    const id_card = req.body['id_card']
+    const id_deck = req.url.replace('/Del?id=','')
+
+    const cards = app.Model.Cards_model
+    const deck = app.Model.Decks_model
+    var where = {
+        id:id_card,
+        id_deck
+    } 
+
+    
+    cards.delete(where)
+
+    where = {
+        id:id_deck
+    }
+    let atribute = {
+        num_cards:1
+    }
+    deck.decre(atribute,where)
+
+    res.json({mensagem:'cero'})
+
+}
+module.exports.DelDeck = function (app,req,res) {
+    const id_deck = req.body['id_deck']
+    const deck = app.Model.Decks_model
+
+    var where = {
+        id:id_deck
+    } 
+
+    
+    deck.delete(where)
+
+   
+    res.json({mensagem:'cero'})
+    
 }

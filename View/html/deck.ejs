@@ -21,19 +21,46 @@
         <tr>
             <th>titulo</th>
             <th>descrição</th>
-
+            <th></th>
         </tr>
         
             <% data['lista'].forEach(element => { %>
 
                     
-                    <tr id="<%= element[2] %>" style="border: 2px solid black;" onclick="redirect(this.id)">
+                    <tr id="<%= element[2] %>" style="border: 2px solid black;">
                         <th> <h4> <%= element[0] %> </h4> </th>
                         <th> <h4> <%= element[1] %> </h4> </th>
+                        <th>
+                            <button id="<%= element[2] %>"onclick="Del(this.id)">Deletar</button>
+                        </th>
+                        
                     </tr>
                                
                     <% }); %>
         
     </table>
+
+    <script>
+
+        function Del(params) {
+
+            fetch("/Del?id=<%= data['id'] %>", {
+
+                method: "POST",
+                body: JSON.stringify({
+                    id_card: params,
+                    title: "Card a deletar",
+                    completed: false
+                }),
+                    headers: {
+                        "Content-type": "application/json; charset=UTF-8"
+                    }
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+            location.reload()
+        }
+
+    </script>
 </body>
 </html>

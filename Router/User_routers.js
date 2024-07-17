@@ -56,5 +56,12 @@ module.exports = function(app){
     app.post('/addCardIa',verifyJWT,function(req,res){
         app.Controller.User_controller.addCardIa(app,req,res)
     })
+
+    app.post('/Del',verifyJWT,function(req,res){
+        app.Controller.User_controller.Del(app,req,res)
+    })
+    app.post('/DelDeck',verifyJWT,function(req,res){
+        app.Controller.User_controller.DelDeck(app,req,res)
+    })
 }
 

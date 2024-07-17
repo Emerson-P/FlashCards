@@ -53,21 +53,18 @@ class card_tabela {
         return select
     }
 
-    // async update(attributet,where){
-    //     await this.user_tabela.sync();
+    async update(attributet,where){
+        await this.card_tabela.sync();
+        await this.card_tabela.increment(attributet,{ where})
+    }
+
+    async delete(where){
+        await this.card_tabela.sync();
         
-    //     const select = await this.user_tabela.update(attributet,{where})
-
- 
-    // }
-
-    // async delete(where){
-    //     await this.user_tabela.sync();
+        const select = await this.card_tabela.destroy({where})
         
-    //     const select = await this.user_tabela.destroy({where})
-
- 
-    // }
+        
+    }
 
 
 }

@@ -24,9 +24,6 @@ class deck_tabela {
             },
             num_cards:{
                 type:Sequelize.INTEGER
-            },
-            tags:{
-                type:Sequelize.TEXT
             }
         });
     }
@@ -39,8 +36,10 @@ class deck_tabela {
             num_cards : 0 ,
             id_user
         })
-
+        
     }
+
+    
 
     async select(attributes,where){
         await this.deck_tabela.sync();
@@ -56,19 +55,20 @@ class deck_tabela {
 
     async update(attributet,where){
         await this.deck_tabela.sync();
-        await this.deck_tabela.increment(attributet,{ where})
+        await this.deck_tabela.increment(attributet,{where})
         
  
     }
+    async decre(atribute,where){
+        await this.deck_tabela.sync();
+        await this.deck_tabela.decrement(atribute,{where})
+    }
 
 
-    // async delete(where){
-    //     await this.user_tabela.sync();
-        
-    //     const select = await this.user_tabela.destroy({where})
-
- 
-    // }
+    async delete(where){
+        await this.deck_tabela.sync();
+        const select = await this.deck_tabela.destroy({where})
+    }
 
 
 }
