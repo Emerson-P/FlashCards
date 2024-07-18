@@ -66,6 +66,9 @@ module.exports = function(app){
     app.post('/alterarCard',verifyJWT,function(req,res){
         app.Controller.User_controller.altCard(app,req,res)
     })
+    app.get('/estudar',verifyJWT,function(req,res){
+        app.Controller.User_controller.estudar(app,req,res)
+    })
     
 }
 

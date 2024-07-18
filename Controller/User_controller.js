@@ -139,7 +139,7 @@ module.exports.deck = function(app,req,res){
         id: id,
         lista
         }
-        console.log(lista,id)
+        
         res.render(dir_html+'/deck', {data})
     })
     
@@ -280,17 +280,41 @@ module.exports.altCard = function (app,req,res) {
         titulo:req.body.titulo,
         desc:req.body.desc
     }
-
     var where = {
         id
     }
-
-    
-
     cards.alterarCard(atribute,where)
 
     var url_complete = '/deck?id='+id_deck
     res.redirect(url_complete)
-
 }
+module.exports.estudar = function(app,req,res){
+    const id_deck = req.url.replace('/estudar?id=','')
+    const cards = app.Model.Cards_model
 
+    const atribute = ['titulo','desc']
+
+    const where = {
+        id_deck
+    }
+
+    cards.select(atribute,where).then((resposta) => {
+        
+        var lista = []
+
+        resposta.forEach(element => {
+
+            var card = [element['dataValues']['titulo'],element['dataValues']['desc']]
+            lista.push(card)
+        });
+        
+        const data = {
+        id: id_deck,
+        lista
+        }
+
+        
+        res.render(dir_html+`/estudar`, {data})
+
+    })
+}
