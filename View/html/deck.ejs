@@ -29,20 +29,19 @@
 
                     
                     <tr id="tr<%= element[2] %>" style="border: 2px solid black;">
-                        <form action="/teste">
+                        <form action="/alterarCard?id_deck=<%= data['id'] %>&id_card=<%= element[2]  %>" method="post">
 
-                        
-                        <th > 
-                            <input id="tit<%= element[2] %>" disabled style="border: none; width: 100px;" type="text" value="<%= element[0] %>"> 
-                        </th>
+                            <th > 
+                                <input name="titulo" id="tit<%= element[2] %>" disabled style="border: none; width: 100px;" type="text" value="<%= element[0] %>"> 
+                            </th>
 
-                        <th >  <input id="desc<%= element[2] %>" disabled style="border: none; width: 700px;" type="text" value="<%= element[1] %>">  </th>
-                        <th >
-                            <button type="button" id="del<%= element[2] %>"onclick="Del(this.id)">Deletar</button>
-                        </th>
-                        <th>
-                            <button type="button"  id="<%= element[2] %>" onclick="Edit(this.id)" >Editar</button>
-                        </th>
+                            <th >  <input name="desc" id="desc<%= element[2] %>" disabled style="border: none; width: 700px;" type="text" value="<%= element[1] %>">  </th>
+                            <th >
+                                <button type="button" name="del" id="del<%= element[2] %>">Deletar</button>
+                            </th>
+                            <th>
+                                <button type="button"  id="<%= element[2] %>"  name="btn"  >Editar</button>
+                            </th>
                         </form>
                     </tr>
                                
@@ -55,37 +54,86 @@
 
     <script>
 
-        function Del(params) {
+        function Enviar(event){
+            let id_b = event.target.id
+            let btn_en = document.getElementById(`${id_b}`)
+            btn_en.setAttribute('type','submit')
+        }
 
+        function Del(event) {
+            console.log(event)
+            let id = event.target.id
 
-            fetch("/Del?id=<%= data['id'] %>", {
+                    fetch("/Del?id=<%= data['id'] %>", {
+                    
+                    method: "POST",
+                    body: JSON.stringify({
+                        id_card: id.replace('del',''),
+                        title: "Card a deletar",
+                        completed: false
+                    }),
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8"
+                        }
+                    })
+                    location.reload()
+        }
 
-                method: "POST",
-                body: JSON.stringify({
-                    id_card: params.replace('del',''),
-                    title: "Card a deletar",
-                    completed: false
-                }),
-                    headers: {
-                        "Content-type": "application/json; charset=UTF-8"
-                    }
+        var del = document.getElementsByName('del')
+            del.forEach((element) => {
+                element.addEventListener("click",Del)
             })
+
+
+
+        var list = document.getElementsByName('btn')
             
-            location.reload()
-        }
+            list.forEach((element) => {
+                
+                element.addEventListener("click",function(event){
+                    
 
-        function Edit(params) {
-            let titulo = document.getElementById(`tit${params}`)
-            let dec = document.getElementById(`desc${params}`)
-            let btn = document.getElementById(`${params}`)
+                    let params = event.target.id
+                    let titulo = document.getElementById(`tit${params}`)
+                    let dec = document.getElementById(`desc${params}`)
+                    let btn = document.getElementById(`${params}`)
+                    let btn_del = document.getElementById(`del${params}`)
 
-            titulo.removeAttribute('disabled')
-            dec.removeAttribute('disabled')
-            
-            btn.innerHTML = 'Alterar'
-            // btn.setAttribute('type','submit')
+                    titulo.removeAttribute('disabled')
+                    dec.removeAttribute('disabled')
+                    
+                    btn.innerHTML = 'Alterar'
+                    btn_del.innerHTML = 'Cancelar'
+                    
+                    btn_del.removeEventListener("click",Del)
 
-        }
+                    btn.addEventListener("click",Enviar)
+
+                    btn_del.addEventListener("click",function(event) {
+
+                        titulo.setAttribute('disabled','true')
+                        dec.setAttribute('disabled','true')
+                    
+                        btn.innerHTML = 'Editar'
+                        btn_del.innerHTML = 'Deletar'
+
+                        btn_del.addEventListener("click",Del)
+                        btn.removeEventListener("click",Enviar)
+                    })
+                    
+                    
+                    
+                    
+                })
+
+            })  
+
+        
+
+
+        
+
+        
     </script>
 </body>
 </html>
