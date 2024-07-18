@@ -58,6 +58,13 @@ class card_tabela {
         await this.card_tabela.increment(attributet,{ where})
     }
 
+
+    async alterarCard(atribute,where){
+        await this.card_tabela.sync();
+        await this.card_tabela.update(atribute,{where})
+
+    }
+
     async delete(where){
         await this.card_tabela.sync();
         

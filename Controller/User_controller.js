@@ -268,8 +268,29 @@ module.exports.DelDeck = function (app,req,res) {
     res.json({mensagem:'cero'})
     
 }
-module.exports.Edit = function (app,req,res) {
+module.exports.altCard = function (app,req,res) {
+    const cards = app.Model.Cards_model
+
+    var list = req.url.split('&')
+
+    var id_deck = list[0].replace('/alterarCard?id_deck=','')
+    var id =  list[1].replace('id_card=','')
+    
+    var atribute = {
+        titulo:req.body.titulo,
+        desc:req.body.desc
+    }
+
+    var where = {
+        id
+    }
 
     
+
+    cards.alterarCard(atribute,where)
+
+    var url_complete = '/deck?id='+id_deck
+    res.redirect(url_complete)
+
 }
 

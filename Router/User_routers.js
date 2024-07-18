@@ -63,8 +63,8 @@ module.exports = function(app){
     app.post('/DelDeck',verifyJWT,function(req,res){
         app.Controller.User_controller.DelDeck(app,req,res)
     })
-    app.post('/Edit',verifyJWT,function(req,res){
-        app.Controller.User_controller.Edit(app,req,res)
+    app.post('/alterarCard',verifyJWT,function(req,res){
+        app.Controller.User_controller.altCard(app,req,res)
     })
     
 }
