@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>decks</h1>
+    <a href="/bliblioteca">bliblioteca</a>
+
+
+
+
+
+    <form action="/criarDeck" method="post">
+        <h1>Criar novo deck</h1>
+        <input type="text" name="nome" placeholder="nome do deck">
+        <button>enviar</button>
+    </form>
+
+
+
+
+    <table>
+
+        <tr>
+            <th>nome</th>
+            <th>numero de cards</th>
+            <th></th>
+
+        </tr>
+        
+            <% data.forEach(element => { %>
+
+                    
+                    <tr id="<%= element[2] %>" style="border: 2px solid black;" >
+                        <th id="<%= element[2] %>" onclick="redirect(this.id)"> <h4> <%= element[0] %> </h4> </th>
+                        <th id="<%= element[2] %>" onclick="redirect(this.id)"> <h4> <%= element[1] %> </h4> </th>
+                        <th>
+                            <button id="<%= element[2] %>"onclick="Del(this.id)">Deletar</button>
+                        </th>
+                    </tr>
+                               
+                    <% }); %>
+        
+    </table>
+    
+    
+
+    <script>
+
+        function redirect(params) {
+            
+            window.location.href = `/deck?id=${params}`
+        }
+
+        function Del(params) {
+
+        fetch("/DelDeck?id=<%= data['id'] %>", {
+
+            method: "POST",
+            body: JSON.stringify({
+                id_deck: params,
+                title: "deck a deletar",
+                completed: false
+            }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+        })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
+        location.reload()
+        }
+
+    </script>
+</body>
+</html>

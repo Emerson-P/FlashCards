@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>cards ia</h1>
+
+    <form action="/gerarIA?id=<%= data['id'] %>" method="post">
+        <select name="num_cards" >
+            <option value="4">4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+        </select>
+
+        <input type="text" name="tema">
+
+        <select name="linguagem">
+            <option value="resumida">resumida</option>
+            <option value="simples">simples</option>
+            <option value="avançado">avançado</option>
+        </select>
+
+        <button>Gerar</button>
+    </form>
+
+</body>
+</html>
