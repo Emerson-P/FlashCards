@@ -292,7 +292,7 @@ module.exports.estudar = function(app,req,res){
     const id_deck = req.url.replace('/estudar?id=','')
     const cards = app.Model.Cards_model
 
-    const atribute = ['titulo','desc']
+    const atribute = ['titulo','desc','id']
 
     const where = {
         id_deck
@@ -304,7 +304,7 @@ module.exports.estudar = function(app,req,res){
 
         resposta.forEach(element => {
 
-            var card = [element['dataValues']['titulo'],element['dataValues']['desc']]
+            var card = [element['dataValues']['titulo'],element['dataValues']['desc'],element['dataValues']['id']]
             lista.push(card)
         });
         

@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.carousel {
+    width: 70%;
+    height: 65%;
+    overflow: hidden;
+    border: 2px solid black;
+    position: relative;
+}
+
+.carousel-item {
+    display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    transition: opacity 0.5s;
+}
+
+.carousel-item.active {
+    display: block;
+    opacity: 1;
+}
+
+button {
+
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+
+.showBtn{
+
+    border: 2px solid red;
+}
+
+h5{
+    border: 2px solid black;
+}
+
+.titulo{
+    height: 20%;
+}
+
+.desc, .show{
+    margin: 0;
+    height: 50%;
+}
+.desc{
+    color: white;
+
+}
+.show{
+    color: rgb(0, 0, 0);    
+}
+
