@@ -1,0 +1,54 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/app/cadastrar.css">
+</head>
+<body>
+
+    <div class="center">
+        <div class="form">
+            <form action="/dadosCadastro" method="post">
+                <div class="mb-3">
+                    <div class="div-h1">
+                        <h1 class="h1">Cadastre:</h1>
+                    </div>
+                </div >
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Seu Nome:</label>
+                    <input  placeholder="Pedrin" name="nome" type="text" class="form-control" id="nome" aria-describedby="emailHelp">
+                </div>
+                        
+                    
+                <div class="mb-3">
+                    <label for="email" class="form-label">Seu Email:</label>
+                    <input placeholder="email@blabla.com" name="email" type="email" class="form-control" id="email">
+                </div>
+                <div>
+                    <label for="senha" class="form-label">Seu Senha:</label>
+                    <input placeholder="Ex: #gt6dm9sb" name="senha" type="password" class="form-control" id="senha">
+                </div>
+                <div class="btn_center">
+                    <button type="submit" class="btn btn-primary" id="btn">Cadastrar</button>
+                </div>
+              
+                <div class="cadastrar">
+                    <h6>Já tem uma conta? ->    <a href="/index">Logar</a></h6>
+                  </div>
+            </form>
+        </div>
+        <img src="/imgs/booc_cad.jpg" alt="">
+    </div>
+<!--     
+    <form action="/dadosCadastro" method="post">
+        <h1>cadastro</h1>
+        <input type="text" name="nome">
+        <input type="email" name="email">
+        <input type="password" name="senha">
+        <button>enviar</button>
+    </form> -->
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

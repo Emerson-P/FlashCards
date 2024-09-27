@@ -1,0 +1,102 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus decks</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/app/deck.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg " id="barra">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><h3>Cards</h3></a>
+          
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#"><h4>texto</h4></a>
+              
+              
+            </div>
+          </div>
+          <div class="d-flex">
+            <a class="nav-link" href="#"><h4>ola, junin</h4></a>
+            <a class="nav-link" href="#"><h4>texto</h4></a>
+          </div>
+          
+        </div>
+    </nav>
+
+    
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+            <form class="row g-3" action="/criarCard?id=<%= data['id'] %>" method="post" id="criarCard">
+
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Titulo Flashcard:</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="titulo" placeholder="Ex: Diógenes">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descrição Flashcard:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="3" placeholder="Ex: considerado um dos fundadores da escola filosófica conhecida como cinismo. Diógenes é conhecido por sua vida simples e desapegada dos bens materiais, além de suas atitudes provocativas e irreverentes"></textarea>
+              </div>
+              
+              <div class="div-center">
+                <button type="submit" class="btn btn-primary mb-3">Criar</button>
+              </div>
+
+              </form>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-dark " id="novodeck">
+        
+        <div class="container-fluid" id="ndeck">
+          <div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                
+            </button>
+            <h4>Criar novo Card </h4>
+          </div>
+          <div>
+            <h4>Estudar</h4>
+          </div>
+            
+          
+           <div>
+            <h4>Gerar cards por IA</h4>
+          </div>
+        </div>
+      </nav>
+
+
+      <div class="decks">
+        <div class="d-flex">
+            <div class="deck">
+                <div class="deck-text">
+                    <div>
+                        <h5>texto</h5>
+                    </div>
+                    <div>
+                        <h5>texto</h5>
+                    </div>
+                    
+                </div>
+                
+                <div class="deck-btn">
+                    <button type="button" class="btn btn-danger">Danger</button>
+                </div>
+                
+                <!-- <h5>texto</h5> -->
+            </div>
+        </div>
+        
+      </div>
+    
+
+    
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/app/deck.js"></script>
+</body>
+</html>

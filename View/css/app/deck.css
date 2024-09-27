@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,#novodeck{
+    background-color:#2C2C2C ;
+}
+
+
+/* Nav Bar */
+
+
+.nav-link{
+    margin: 0 2% 0 2%;
+    color: white;
+}
+.d-flex{
+    text-align: center;
+    align-items: center;
+}
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+.d-flex .nav-link {
+    width: 50%;
+}
+.navbar-brand{
+    color:#C8FCEA ;
+}
+h4{
+    color: white;
+}
+#barra{
+    background-color: #2A272A;
+}
+
+
+/*  Criar card  */
+
+
+#ndeck{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+#ndeck h4 {
+    margin: 1% 0 1% 10%;
+}
+
+.col-auto label{
+    color: white;
+}
+.col-auto button{
+    color: black;
+    border: 3px solid #00C6CF;
+    background-color: #00C6CF;
+}
+
+.mb-3{
+    /* border: 2px solid blue; */
+    width: 70%;
+}
+#criarCard{
+    display: flex;
+    justify-content: center;
+}
+.div-center{
+    display: flex;
+    justify-content: center;
+    /* width: 30%; */
+}
+.div-center button {
+    width: 30%;
+}
+.mb-3 label {
+    color: white;
+}
+
+#ndeck div {
+    width: 32%;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* cards */
+
+/*Decks  */
+
+.decks{
+    display: flex;
+    min-height: 75%;
+    text-align: center;
+    justify-content: center;
+}
+
+.decks .d-flex{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 30px;
+    background-color: #2A272A;
+    width: 90%;
+}
+.deck {
+    border: 2px solid salmon;
+    display: flex;
+    height: 100px;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-radius: 20px;
+    width: 98%;
+    margin: 10px;
+}
+
+.deck h5 {
+    margin: 20px 0 10px 0 ;
+    color: white;
+}
+.deck-btn{
+    margin: 10px;
+
+}
+.deck-text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    border: 2px solid red ;
+}
+a{
+    text-decoration: none;
+}
+input{
+    border: 2px solid blue;
+    color: white;
+    width: 1000px;
+}

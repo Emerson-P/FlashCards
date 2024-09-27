@@ -4,5 +4,55 @@
 }
 
 body{
+    background-color:#2C2C2C ;
+    
+}
+.center,.btn_center,.div-h1,.cadastrar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.cadastrar,.div-h1{
+    height: 10%;
+}
+.btn_center{
+    margin: 5%;
+    height: 20%;
+}
+.form{
+    border: 2px solid #D3FBD8;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    height: 70%;
+    border-radius: 40px;
+    /* border: 2px solid red; */
+}
+.h1,.form-label,h6{
+    color: white;
+}
 
+h1{
+    color: #00C6CF;
+    margin: 0 0 40px 0;
+}
+#btn{
+    color: black;
+    border: 3px solid #00C6CF;
+    margin: 20px;
+    width: 40%;
+    background-color: #00C6CF;
+}
+img{
+    height: 100%;
+    width: 55%;
+}
+a{
+    color: #00C6CF;
 }

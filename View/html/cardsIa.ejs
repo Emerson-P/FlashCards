@@ -1,14 +1,199 @@
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cards IA</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app/cardsia.css">
 </head>
 <body>
-    <h1>cards ia</h1>
 
-    <form action="/gerarIA?id=<%= data['id'] %>" method="post">
-        <select name="num_cards" >
+    <nav class="navbar navbar-expand-lg " id="barra">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><h3>Cards</h3></a>
+          
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
+              
+              
+            </div>
+          </div>
+          
+          
+        </div>
+    </nav>
+
+    <div class="div-img">
+        <h1>
+            O que são Flashcards ?
+        </h1> 
+    </div>
+    
+    <div class="exp-cards">
+        <div class="row">
+            <div>
+                <h3>
+                    Flashcards são cartões de estudo usados para ajudar na memorização de informações,eles são uma ferramenta eficaz para revisar e reter informações, pois incentivam a prática ativa e repetida.
+                </h3>
+            </div>
+            
+        </div>
+        
+        <div class="row" >
+            <div id="card-ini">
+                <h1>Titulo</h1>
+                <h1>Descrição</h1>
+            </div>
+        </div>
+        <div class="collum">
+            <div>
+                <h5><b>Titulo:</b> Breve indicação do assunto ou tema do flashcard. Serve para identificar rapidamente o conteúdo ou o foco principal do cartão.</h5>
+                <h5><b>Descrição:</b> Parte do flashcard que contém a explicação, resposta ou detalhes adicionais sobre o título.</h5>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="div-img">
+        <h1>
+            O que são Flashcards ?
+        </h1> 
+    </div>
+    
+
+    <div class="div-img">
+        <div>
+            <img src="imgs/introducao.jpg" alt="">
+            <h5>
+               Nossa plataforma utiliza Inteligência Artificial para criar flashcards personalizados,
+                otimizando seu tempo de estudo. Com algoritmos avançados,ajudando você a 
+                memorizar e compreender melhor os assuntos. Experimente a revolução do aprendizado com flashcards e veja como a 
+                tecnologia pode transformar seu estudo.
+            </h5>
+        </div>
+    </div>
+
+    <div class="div-img">
+        <h1>
+            Veja Algumas dicas;
+        </h1> 
+    </div>
+
+    <div class="div-img">
+        <div class="d-flex align-items-start" id="tab-img">
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Prompt</button>
+                <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Complexidade</button>
+                <button class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Facilidade</button>
+            </div>
+                <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">
+                    <div id="div-text-img">
+                        <div>
+                            <h6>Como melhorar o resultado do prompt ?</h6>
+                            <h6>Seja Específico: Ex "Como ocorre a fotossíntese"</h6>
+                            <h6>Use Palavras-Chave:  Ex "Definições de termos em biologia celular."</h6>
+                            
+                        </div>
+                        
+                        <img src="imgs/prompt.jpg" alt=""> 
+                    </div>
+                    
+                </div>
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+                    <div id="div-text-img">
+                        <img src="imgs/linguagem.jpg" alt=""> 
+                        <div>
+                            <h6>Um resumo sobre o nivel de complexidade de linguagem:</h6>
+                            <h6><b>Resumida:</b> Ideal para revisões rápidas e conceitos-chave.</h6>
+                            <h6><b>Simplificado:</b> Aprendizado descontraído, tornando o conteúdo mais simples de entender.</h6>
+                            <h6><b>Complexa:</b> Perfeita para aprofundar-se em tópicos avançados ou técnicos, proporcionando uma compreensão detalhada.</h6>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">
+                    <div id="div-text-img">
+                        <div>
+                            <h6>A criação de flashcards nunca foi tão simples e eficiente! Com a nossa tecnologia de Inteligência Artificial, você pode gerar flashcards personalizados em segundos. Basta inserir seus tópicos ou perguntas, e a IA faz todo o trabalho pesado para você.</h6>
+                        </div>
+                        
+                        <img src="imgs/facilidade.jpg" alt=""> 
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+    
+    <div class="div-img">
+        <h1>
+            Veja como  é facil:
+        </h1> 
+    </div>
+
+    <div class="div-ai">
+        <form action="/gerarIA?id=<%= data['id'] %>" method="post" class="form">
+
+            <div class="div-inter-input">
+                <label for="tema"><h5>Primeiro, digite um tema:</h5></label>
+                <input type="text" name="tema" placeholder="Ex: Como ocorre a fotossíntese " id="input-tema">
+            </div>
+            <div class="div-inter-input" id="input">
+                <div>
+                    <h5>Segundo, selecione a complexidade da linguagem:</h5>
+                </div>
+
+
+                <div id="card">
+
+                    <div class="card" id="resumo" name="card">
+                        <h1  id="resumo" >Resumida</h1>
+                        <div class="card-body"  id="resumo" >
+                          <p class="card-text"  id="resumo" ><h5 id="resumo">Some quick example text to build on the card title and make up the bulk of the card's content.</h5></p>
+                        </div>
+                    </div>
+
+                    <div class="card" id="simples" name="card" >
+                        <h1 style="color: black;" id="simples">Simplificada</h1>
+                        <div class="card-body" id="simples">
+                          <p class="card-text" id="simples"><h5 style="color: black;" id="simples">Some quick example text to build on the card title and make up the bulk of the card's content.</h5></p>
+                        </div>
+                    </div>
+                    <div class="card" id="complexo" name="card">
+                        <h1 id="complexo">Complexa</h1>
+                        <div class="card-body" id="complexo">
+                          <p class="card-text" id="complexo"><h5 id="complexo">Some quick example text to build on the card title and make up the bulk of the card's content.</h5></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="div-input">
+                    <input class="check" name="ling" disabled checked type="checkbox" id="resumo">
+                    <input class="check" name="ling" disabled type="checkbox" id="simples">
+                    <input class="check" name="ling" disabled type="checkbox" id="complexo" >
+                </div>
+                
+
+            </div>
+            <div class="div-inter-input">
+                <label for="tema"><h5>Por ultimo, selecione a quantidade de Flashcards:</h5></label>
+                <select name="num_cards" >
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+            <div class="div-inter-input">
+                <label for="tema"><h5>Pronto, esta na hora de </h5></label>
+                <button type="button" class="btn btn-primary">Criar</button>
+            </div>
+        </form>
+    </div>
+    
+
+        <!-- <select name="num_cards" >
             <option value="4">4</option>
             <option value="6">6</option>
             <option value="8">8</option>
@@ -22,8 +207,9 @@
             <option value="avançado">avançado</option>
         </select>
 
-        <button>Gerar</button>
+        <button>Gerar</button> -->
     </form>
-
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/app/cardsIa.js"></script>
 </body>
 </html>

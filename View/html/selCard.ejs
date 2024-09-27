@@ -1,15 +1,63 @@
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Selecione seus cards </title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app/selCard.css">
 </head>
 <body>
-    <form action="/addCardIa?id=<%- data['id'] %>" method="post">
-            <% 
+
+    <nav class="navbar navbar-expand-lg " id="barra">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><h3>Cards</h3></a>
+          
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
+              
+              
+            </div>
+          </div>
+          
+          
+        </div>
+    </nav>
+
+
+    <div class="center">
+        <h2>Exclua os cards indesejados, o restante sera adicionado ao deck.</h2>
+    </div>
+    
+    <div class="decks">
+        <div class="d-flex">
+            <div class="deck">
+                <div class="deck-text">
+                    <div class="tit">
+                        <h5>texto</h5>
+                    </div>
+                    <div class="desc">
+                        <h5>texto</h5>
+                    </div>
+                    
+                </div>
+                
+                <div class="deck-btn">
+                    <button type="button" class="btn btn-danger">Danger</button>
+                </div>
+                
+                <!-- <h5>texto</h5> -->
+            </div>
+        </div>
+        
+      </div>
+
+
+    <!-- <form action="/addCardIa?id=<%- data['id'] %>" method="post">
+            <
             var index = 0
             data['cards'].forEach(element => { %>
-                <% index += 1 %>
+                 index += 1 %>
                 
                 <div id="<%-`div${index}` %>">
                     <input type="text" name="<%-`titulo${index}` %>" value=" <%- element[0] %>" style="width: 500px;height: 200px;">
@@ -17,18 +65,19 @@
                     <button type="button" id="<%-`${index}` %>" onclick="deletar(this.id)">deletar</button>
                 </div>
                 
-                <%
-            }); %>
+                
+            }); 
 
             <button type="submit">Enviar</button>
-    </form>
+    </form> -->
 
     <script>
         function deletar(id) {
             let div = document.getElementById(`div${id}`)
-
             div.parentNode.removeChild(div)
         }
     </script>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/app/decks.js"></script>
 </body>
 </html>

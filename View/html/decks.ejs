@@ -1,78 +1,87 @@
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Seus decks</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/app/decks.css">
 </head>
 <body>
-    <h1>decks</h1>
-    <a href="/bliblioteca">bliblioteca</a>
+    
+    <nav class="navbar navbar-expand-lg " id="barra">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><h3>Cards</h3></a>
+          
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
+              
+              
+            </div>
+          </div>
+          
+          
+        </div>
+    </nav>
 
 
 
+      
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+            <form class="row g-3" action="/criarDeck" method="post">
+                <div class="col-auto">
+                    <label for="inputPassword6" class="col-form-label">Nome do Deck:</label>
+                  </div>
+                  <div class="col-auto">
+                    <input name="nome" type="password" id="inputPassword6" placeholder="Ex: Biologia 1º periodo" class="form-control" aria-describedby="passwordHelpInline">
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Criar</button>
+                </div>
+              </form>
+        </div>
+      </div>
 
-
-    <form action="/criarDeck" method="post">
-        <h1>Criar novo deck</h1>
-        <input type="text" name="nome" placeholder="nome do deck">
-        <button>enviar</button>
-    </form>
-
-
-
-
-    <table>
-
-        <tr>
-            <th>nome</th>
-            <th>numero de cards</th>
-            <th></th>
-
-        </tr>
+      <nav class="navbar navbar-dark " id="novodeck">
         
-            <% data.forEach(element => { %>
+        <div class="container-fluid" id="ndeck">
+            <h4>Criar novo deck</h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+      </nav>
 
+      <% data.forEach(element => { %>
+
+
+      <div class="decks">
+        <div class="d-flex">
+            <div class="deck" id="<%= element[2] %>" onclick="redirect(this.id)">
+                <div class="deck-text">
+                    <div>
+                        <h5> <%= element[0] %></h5>
+                    </div>
+                    <div>
+                        <h5>Numero de cards:  <%= element[1] %></h5>
+                    </div>
                     
-                    <tr id="<%= element[2] %>" style="border: 2px solid black;" >
-                        <th id="<%= element[2] %>" onclick="redirect(this.id)"> <h4> <%= element[0] %> </h4> </th>
-                        <th id="<%= element[2] %>" onclick="redirect(this.id)"> <h4> <%= element[1] %> </h4> </th>
-                        <th>
-                            <button id="<%= element[2] %>"onclick="Del(this.id)">Deletar</button>
-                        </th>
-                    </tr>
-                               
-                    <% }); %>
+                </div>
+                
+                <div class="deck-btn">
+                    <button type="button" onclick="Del(this.id)" class="btn btn-danger">Deletar</button>
+                </div>
+                
+                <!-- <h5>texto</h5> -->
+            </div>
+        </div>
         
-    </table>
-    
-    
+      </div>
 
-    <script>
+      <% }) %>
 
-        function redirect(params) {
-            
-            window.location.href = `/deck?id=${params}`
-        }
-
-        function Del(params) {
-
-        fetch("/DelDeck?id=<%= data['id'] %>", {
-
-            method: "POST",
-            body: JSON.stringify({
-                id_deck: params,
-                title: "deck a deletar",
-                completed: false
-            }),
-                headers: {
-                    "Content-type": "application/json; charset=UTF-8"
-                }
-        })
-        .then((response) => response.json())
-        .then((json) => console.log(json));
-        location.reload()
-        }
-
-    </script>
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/app/decks.js"></script>
 </body>
 </html>

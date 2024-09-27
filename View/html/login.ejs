@@ -3,63 +3,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/app/login.css">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app/login.css">
 </head>
 <body>
     
-    <!-- <form action="/dadosLogin" method="post">
-        
-        <input type="email" name="email">
-        <input type="password" name="senha">
-        <button>enviar</button>
-    </form> -->
-
-
-
+  
     <div class="center">
-      <div class="div-img">
-        <div class="div-h1">
-          <h1 class="h1">Esta pronto para os estudos?</h1>
-        </div>
-        <img src="../imgs/nerd-removebg-preview.png" alt="">
-      </div>
-
+      <img src="/imgs/book.jpg" alt="">
 
       <div class="form">
 
         <form action="/dadosLogin" method="post" >
 
-          
         <div class="mb-3">
           <div class="div-h1">
-            <h1 class="h1">login</h1>
+              <h1 >Login</h1>
           </div>
 
-          <label for="exampleInputEmail1" class="form-label">Seu Email:</label>
-          <input  placeholder="email@blabla.com" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          
+            <label for="exampleInputEmail1" class="form-label">Seu Email:</label>
+            <input  placeholder="email@blabla.com" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            
         </div>
+
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Senha:</label>
-          <input placeholder="Ex: #gt6dm9sb" name="senha" type="password" class="form-control" id="exampleInputPassword1">
+            <label for="exampleInputPassword1" class="form-label">Senha:</label>
+            <input placeholder="Ex: #gt6dm9sb" name="senha" type="password" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="btn_center">
-          <button type="submit" class="btn btn-primary" id="btn">Logar</button>
+            <button type="submit" class="btn btn-primary" id="btn">Logar</button>
         </div>
-        
-        <div class="cadastrar">
-          <h6>Não tem uma conta? ->    <a href="/cadastrar">cadastrar</a></h6>
-        </div>
+          
+          <div class="cadastrar">
+            <h6>Não tem uma conta? ->    <a href="/cadastrar">cadastrar</a></h6>
+          </div>
         </form>
       </div>
-    
-    
-
-
     </div>
-    
 
-    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+   
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,118 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seus decks</title>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/app/decks.css">
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg " id="barra">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><h3>Cards</h3></a>
+          
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" href="#"><h4>texto</h4></a>
+              
+              
+            </div>
+          </div>
+          <div class="d-flex">
+            <a class="nav-link" href="#"><h4>ola, junin</h4></a>
+            <a class="nav-link" href="#"><h4>texto</h4></a>
+          </div>
+          
+        </div>
+    </nav>
+
+
+
+      
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+            <form class="row g-3" action="/criarDeck" method="post">
+                <div class="col-auto">
+                    <label for="inputPassword6" class="col-form-label">Nome do Deck:</label>
+                  </div>
+                  <div class="col-auto">
+                    <input name="nome" type="password" id="inputPassword6" placeholder="Ex: Biologia 1º periodo" class="form-control" aria-describedby="passwordHelpInline">
+                </div>
+                <div class="col-auto">
+                  <button type="submit" class="btn btn-primary mb-3">Criar</button>
+                </div>
+              </form>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-dark " id="novodeck">
+        
+        <div class="container-fluid" id="ndeck">
+            <h4>Criar novo deck</h4>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+      </nav>
+
+      <div class="decks">
+        <div class="d-flex">
+            <div class="deck">
+                <div class="deck-text">
+                    <div>
+                        <h5>texto</h5>
+                    </div>
+                    <div>
+                        <h5>texto</h5>
+                    </div>
+                    
+                </div>
+                
+                <div class="deck-btn">
+                    <button type="button" class="btn btn-danger">Danger</button>
+                </div>
+                
+                <!-- <h5>texto</h5> -->
+            </div>
+        </div>
+        
+      </div>
+
+
+
+
+
+<!-- 
+    <table>
+
+        <tr>
+            <th>nome</th>
+            <th>numero de cards</th>
+            <th></th>
+
+        </tr>
+        
+            <% data.forEach(element => { %>
+
+                    
+                    <tr id="<%= element[2] %>" style="border: 2px solid black;" >
+                        <th id="<%= element[2] %>" onclick="redirect(this.id)"> <h4> <%= element[0] %> </h4> </th>
+                        <th id="<%= element[2] %>" onclick="redirect(this.id)"> <h4> <%= element[1] %> </h4> </th>
+                        <th>
+                            <button id="<%= element[2] %>"onclick="Del(this.id)">Deletar</button>
+                        </th>
+                    </tr>
+                               
+                    <% }); %>
+        
+    </table>
+     -->
+    
+
+    
+
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/app/decks.js"></script>
+</body>
+</html>

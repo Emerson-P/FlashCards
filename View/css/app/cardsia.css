@@ -1,0 +1,278 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,#novodeck{
+    background-color:#2C2C2C ;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.nav-link{
+    margin: 0 2% 0 2%;
+    color: white;
+}
+.d-flex{
+    text-align: center;
+    align-items: center;
+}
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+.d-flex .nav-link {
+    width: 50%;
+}
+.navbar-brand{
+    color:#C8FCEA ;
+}
+h1,h2,h3,h4,h5,h6,h7{
+    color: white;
+}
+#barra{
+    /* border: 2px solid red; */
+    background-color: #2A272A;
+}
+
+
+/* explicação flashcards */
+.exp-cards{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    width: 100%;
+    background-color:  #0D0B10;
+    height: 55%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.exp-cards div {
+    width: 30%;
+    /* border: 2px solid red; */
+}
+.row{
+    justify-content: center;
+    align-items: center;
+}
+#card-ini{
+    height: 80%;
+    width: 60%;
+    border-radius: 10px;
+    justify-content: center;
+    flex-direction: row;
+    background-color: #a92372;
+    transition: all 0.5s;
+}
+#card-ini:hover{
+    filter: drop-shadow(15px 10px 5px #FFAFF5);
+}
+#card-ini h1{
+    text-align: center;
+    height: 40%;
+}
+.collum{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.collum div{
+    width: 100%;
+    height: 80%;
+}
+.collum div h5{
+    margin: 10px;
+    color: white;
+    height: 40%;
+}
+.row div{
+    width: 100%;
+    height: 80%;
+
+}
+/* div img */
+
+.div-img{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.div-img div {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #0D0B10;
+    display: flex;
+    margin: 20px;
+    width: 70%;
+    justify-content: flex-start;
+    transition: 0.5s;
+    /* border: 2px solid red; */
+}
+.div-img div:hover{
+    width: 70.5%;
+}
+.div-img img{
+    border: 0px;
+    width: 70%;
+}
+
+
+
+/* tab-img */
+
+h6{
+    margin-top: 10px;
+    font-size: 15px;
+    width: 100%;
+}
+#tab-img{
+    height: 60%;
+    /* border: 2px solid gold; */
+}
+#div-text-img{
+    padding: 0;
+    /* justify-content: center; */
+    display: flex;
+    margin: 0;
+    width: 600px;
+    /* border: 2px solid blue; */
+    background-color: #0d285d;
+}
+#v-pills-tab{
+    width: 26%;
+    /* border: 2px solid brown; */
+}
+#v-pills-tabContent{
+    width: 700px;
+    margin-left: 20px;
+    padding: 0;
+    /* border: 2px solid red; */
+}
+#v-pills-home, #v-pills-profile, #v-pills-messages{
+    margin: 0;
+    padding: 0;
+}
+#div-text-img img{
+    height: 400px;
+    margin-left: 30px;
+    width: 350px;
+}
+#div-text-img div {
+    margin: 0;
+    background-color: #0d285d;
+    display: flex;
+    flex-direction: column;
+}
+
+
+#v-pills-tab button{
+    width: 100%;
+}
+#v-pills-profile div{
+    background-color: #f0ce79;
+}
+#v-pills-profile img{
+    margin-left: 0;
+    margin-right: 30px;
+}
+#v-pills-profile h6 {
+    color: black;
+}
+
+#v-pills-messages div {
+    background-color: #a92372;
+}
+
+/* form */
+.div-ai{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+h1{
+    margin: 10px;
+}
+.form{
+    width: 100%;
+    background-color: #0D0B10;
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-direction: column;
+}
+.input {
+    
+    display: block;
+    width: 100%;
+    flex-direction: row;
+}
+
+#input-tema{
+    border: none;
+    padding-left: 20px;
+}
+
+.div-inter-input{
+    display: flex;
+    padding: 10px;
+    /* border: 2px solid blue;   */
+    margin: 30px;
+    margin-top: 60px;
+    justify-content: center;
+}
+.div-inter-input label {
+    margin-right: 30px;
+}
+.div-inter-input input{
+    width: 20%;
+    border-radius: 10px;
+}
+
+.div-input{
+    /* border: 2px solid salmon; */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+#input{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#card{
+    padding:60px 0 20px 0 ;
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.card{
+    border: 3px solid #0D0B10;;
+    height: 300px;
+    width: 250px;
+}
+.card:hover{
+    border: 3px solid white;
+    cursor: pointer;
+}
+#resumo{
+    background-color: #0d285d;
+}
+#simples{
+    background-color:#f0ce79 ;
+}
+#complexo{
+    background-color: #a92372;
+}
+
+/*
+1994BE
+C32394
+F8EE5C */

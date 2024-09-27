@@ -1,140 +1,104 @@
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Seus decks</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app/deck.css">
 </head>
 <body>
 
-    <h1>deck</h1>
+  <nav class="navbar navbar-expand-lg " id="barra">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><h3>Cards</h3></a>
+      
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
+          
+          
+        </div>
+      </div>
+      
+      
+    </div>
+</nav>
 
-    <form action="/criarCard?id=<%= data['id'] %>" method="post">
-        <input type="text" name="titulo">
-        <input type="text" name="desc">
-        <button>Enviar</button>
-    </form>
 
-    <a href="/cardIA?id=<%= data['id'] %>">Gerar cards IA</a>
-    <a href="/estudar?id=<%= data['id'] %>">Estudar cards</a>
+    
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+            <form class="row g-3" action="/criarCard?id=<%= data['id'] %>" method="post" id="criarCard">
 
-    <table>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Titulo Flashcard:</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="titulo" placeholder="Ex: Diógenes">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descrição Flashcard:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="desc" rows="3" placeholder="Ex: considerado um dos fundadores da escola filosófica conhecida como cinismo. Diógenes é conhecido por sua vida simples e desapegada dos bens materiais, além de suas atitudes provocativas e irreverentes"></textarea>
+              </div>
+              
+              <div class="div-center">
+                <button type="submit" class="btn btn-primary mb-3">Criar</button>
+              </div>
 
-        <tr>
-            <th>titulo</th>
-            <th>descrição</th>
-            <th></th>
-            <th></th>
-        </tr>
+              </form>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-dark " id="novodeck">
         
-            <% data['lista'].forEach(element => { %>
-
-                    
-                    <tr id="tr<%= element[2] %>" style="border: 2px solid black;">
-                        <form action="/alterarCard?id_deck=<%= data['id'] %>&id_card=<%= element[2]  %>" method="post">
-
-                            <th > 
-                                <input name="titulo" id="tit<%= element[2] %>" disabled style="border: none; width: 100px;" type="text" value="<%= element[0] %>"> 
-                            </th>
-
-                            <th >  <input name="desc" id="desc<%= element[2] %>" disabled style="border: none; width: 700px;" type="text" value="<%= element[1] %>">  </th>
-                            <th >
-                                <button type="button" name="del" id="del<%= element[2] %>">Deletar</button>
-                            </th>
-                            <th>
-                                <button type="button"  id="<%= element[2] %>"  name="btn"  >Editar</button>
-                            </th>
-                        </form>
-                    </tr>
-                               
-                    <% }); %>
-        
-
-
-       
-    </table>
-
-    <script>
-
-        function Enviar(event){
-            let id_b = event.target.id
-            let btn_en = document.getElementById(`${id_b}`)
-            btn_en.setAttribute('type','submit')
-        }
-
-        function Del(event) {
-            console.log(event)
-            let id = event.target.id
-
-                    fetch("/Del?id=<%= data['id'] %>", {
-                    
-                    method: "POST",
-                    body: JSON.stringify({
-                        id_card: id.replace('del',''),
-                        title: "Card a deletar",
-                        completed: false
-                    }),
-                        headers: {
-                            "Content-type": "application/json; charset=UTF-8"
-                        }
-                    })
-                    location.reload()
-        }
-
-        var del = document.getElementsByName('del')
-            del.forEach((element) => {
-                element.addEventListener("click",Del)
-            })
-
-
-
-        var list = document.getElementsByName('btn')
-            
-            list.forEach((element) => {
+        <div class="container-fluid" id="ndeck">
+          <div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
                 
-                element.addEventListener("click",function(event){
-                    
+            </button>
+            <h4>Criar novo Card </h4>
+          </div>
+          <div>
+            <a href="/estudar"><h4>Estudar</h4></a>
+          </div>
+            
+          
+           <div>
+            <a href="cardIA"><h4>Gerar cards por IA</h4></a>
+          </div>
+        </div>
+      </nav>
 
-                    let params = event.target.id
-                    let titulo = document.getElementById(`tit${params}`)
-                    let dec = document.getElementById(`desc${params}`)
-                    let btn = document.getElementById(`${params}`)
-                    let btn_del = document.getElementById(`del${params}`)
 
-                    titulo.removeAttribute('disabled')
-                    dec.removeAttribute('disabled')
-                    
-                    btn.innerHTML = 'Alterar'
-                    btn_del.innerHTML = 'Cancelar'
-                    
-                    btn_del.removeEventListener("click",Del)
-
-                    btn.addEventListener("click",Enviar)
-
-                    btn_del.addEventListener("click",function(event) {
-
-                        titulo.setAttribute('disabled','true')
-                        dec.setAttribute('disabled','true')
-                    
-                        btn.innerHTML = 'Editar'
-                        btn_del.innerHTML = 'Deletar'
-
-                        btn_del.addEventListener("click",Del)
-                        btn.removeEventListener("click",Enviar)
-                    })
-                    
-                    
-                    
-                    
-                })
-
-            })  
-
+      <div class="decks">
         
-
-
+        <div class="d-flex">
+          <% data['lista'].forEach(element => { %>
+            <div class="deck">
+                <div class="deck-text">
+                    <div>
+                      <input class="titu" name="titulo" id="tit<%= element[2] %>" disabled  type="text" value="<%= element[0] %>">
+                    </div>
+                    <div>
+                      <input name="titulo" id="tit<%= element[2] %>" disabled  type="text" value="<%= element[1] %>">
+                    </div>
+                    
+                </div>
+                
+                <div class="deck-btn">
+                  <button type="button" name="del" id="del<%= element[2] %>">Deletar</button>
+                  <button type="button"  id="<%= element[2] %>"  name="btn"  >Editar</button>
+                </div>
+                
+                <!-- <h5>texto</h5> -->
+            </div>
+            <% }) %>
+        </div>
         
+      </div>
+    
 
-        
-    </script>
+    
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/app/deck.js"></script>
 </body>
 </html>
