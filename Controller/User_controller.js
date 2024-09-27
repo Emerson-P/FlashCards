@@ -2,7 +2,7 @@ const path = require('path')
 //Variavel criada para encurtar o caminho do diretorio
 const dir_html = path.join(__dirname,'..','View','html')
 const jwt = require('jsonwebtoken')
-const { or } = require('sequelize')
+const { or, Model } = require('sequelize')
 const { Module } = require('module')
 
 
@@ -12,10 +12,11 @@ module.exports.cadastro = function(app,req,res){
     res.render(dir_html+'/cadastrar')
 }
 
-module.exports.login = function(app,req,res){
-    
-    res.render(dir_html+'/login')
+module.exports.homeLogin = function(app,req,res){
+    const dir_html_index = path.join(__dirname,'View','html')
+    res.render(dir_html_index+'/homeLogin')
 }
+
 
 module.exports.dadosCad = function(app,req,res){
     const tabela_user = app.Model.User_model

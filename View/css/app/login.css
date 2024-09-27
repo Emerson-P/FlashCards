@@ -4,8 +4,7 @@
 }
 
 body{
-    background-color:#2C2C2C ;
-    
+    background-color:#0E1527 ; ;
 }
 .center,.btn_center,.div-h1,.cadastrar{
     width: 100%;
@@ -24,7 +23,7 @@ body{
     height: 20%;
 }
 .form{
-    border: 2px solid #D3FBD8;
+    border: 2px solid #E6E8E6;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,20 +38,20 @@ body{
 }
 
 h1{
-    color: #00C6CF;
+    color: #3772FF;
     margin: 0 0 40px 0;
 }
 #btn{
     color: black;
-    border: 3px solid #00C6CF;
+    border: 3px solid #3772FF;
     margin: 20px;
     width: 40%;
-    background-color: #00C6CF;
+    background-color: #3772FF;
 }
 img{
     height: 100%;
     width: 55%;
 }
 a{
-    color: #00C6CF;
+    color: #3772FF;
 }
