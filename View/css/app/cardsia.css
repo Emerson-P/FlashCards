@@ -1,14 +1,27 @@
+/* Configurações gerais */
 *{
     margin: 0;
     padding: 0;
 }
 
 body,#novodeck{
-    background-color:#2C2C2C ;
+    background-color:#0E1527 ;
 }
 ::-webkit-scrollbar {
     display: none;
 }
+h1,h2,h3,h4,h5,h6,h7{
+    color: white;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-size:larger;
+}
+
+/* Nav Bar */
+
 .nav-link{
     margin: 0 2% 0 2%;
     color: white;
@@ -23,19 +36,11 @@ body,#novodeck{
     justify-content: center;
     width: 25%;
 }
-.d-flex .nav-link {
-    width: 50%;
-}
+
 .navbar-brand{
     color:#C8FCEA ;
 }
-h1,h2,h3,h4,h5,h6,h7{
-    color: white;
-}
-#barra{
-    /* border: 2px solid red; */
-    background-color: #2A272A;
-}
+
 
 
 /* explicação flashcards */
@@ -51,7 +56,6 @@ h1,h2,h3,h4,h5,h6,h7{
 }
 .exp-cards div {
     width: 30%;
-    /* border: 2px solid red; */
 }
 .row{
     justify-content: center;
@@ -63,11 +67,11 @@ h1,h2,h3,h4,h5,h6,h7{
     border-radius: 10px;
     justify-content: center;
     flex-direction: row;
-    background-color: #a92372;
+    background-color: #DF2935;
     transition: all 0.5s;
 }
 #card-ini:hover{
-    filter: drop-shadow(15px 10px 5px #FFAFF5);
+    filter: drop-shadow(15px 10px 5px #E6E8E6);
 }
 #card-ini h1{
     text-align: center;
@@ -92,8 +96,13 @@ h1,h2,h3,h4,h5,h6,h7{
     height: 80%;
 
 }
-/* div img */
 
+
+
+
+
+
+/* div img */
 .div-img{
     margin-top: 5%;
     margin-bottom: 5%;
@@ -104,88 +113,93 @@ h1,h2,h3,h4,h5,h6,h7{
 
 .div-img div {
     border-radius: 20px;
-    padding: 20px;
+    
     background-color: #0D0B10;
     display: flex;
     margin: 20px;
     width: 70%;
-    justify-content: flex-start;
     transition: 0.5s;
-    /* border: 2px solid red; */
+    border: 2px solid   #0D0B10 ;
 }
 .div-img div:hover{
-    width: 70.5%;
+    border: 2px solid #E6E8E6;
+    scale: 1.03;
 }
 .div-img img{
+    border-radius: 10px;
     border: 0px;
-    width: 70%;
+    /* width: 70%; */
 }
-
 
 
 /* tab-img */
 
-h6{
-    margin-top: 10px;
-    font-size: 15px;
-    width: 100%;
-}
-#tab-img{
-    height: 60%;
-    /* border: 2px solid gold; */
-}
-#div-text-img{
-    padding: 0;
-    /* justify-content: center; */
+.center-dicas{
+    justify-content: center;
+    align-items: center;
     display: flex;
-    margin: 0;
-    width: 600px;
-    /* border: 2px solid blue; */
-    background-color: #0d285d;
+    padding: 20px;
+}
+
+#dicas{
+    width: 70%;
+    display: flex;
+    padding: 20px;
+    background-color: #0D0B10;
+    border-radius: 10px;
+    border: 2px solid #0D0B10;
+    transition: 500ms;
+}
+
+#dicas h6{
+    font-size: 18px;
+}
+#dicas:hover{
+    scale: 1.01;
+    border: 2px solid #E6E8E6;
 }
 #v-pills-tab{
-    width: 26%;
-    /* border: 2px solid brown; */
+    display: flex;
+    margin: 20px;
 }
-#v-pills-tabContent{
-    width: 700px;
-    margin-left: 20px;
-    padding: 0;
-    /* border: 2px solid red; */
+.div-dicas{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    border-radius: 20px;
+    margin: 20px;
+    border: 2px solid #0D0B10;
+    transition: 500ms;
 }
-#v-pills-home, #v-pills-profile, #v-pills-messages{
-    margin: 0;
-    padding: 0;
+.div-dicas:hover{
+    border: 2px solid white;
+    scale: 1.1;
 }
-#div-text-img img{
+.div-dicas img {
     height: 400px;
     margin-left: 30px;
     width: 350px;
+    border-radius: 16px;
 }
-#div-text-img div {
-    margin: 0;
+.dicas-div-text{
+    margin: 20px;
+}
+#Prompt{
     background-color: #0d285d;
-    display: flex;
-    flex-direction: column;
 }
-
-
-#v-pills-tab button{
-    width: 100%;
+#Complexidade{
+    background-color: #FDCA40; 
 }
-#v-pills-profile div{
-    background-color: #f0ce79;
-}
-#v-pills-profile img{
-    margin-left: 0;
-    margin-right: 30px;
-}
-#v-pills-profile h6 {
+#Complexidade h6{
     color: black;
 }
+#Facilidade{
+        background-color: #D03149;
+}
 
-#v-pills-messages div {
-    background-color: #a92372;
+h6{
+    color: white;
 }
 
 /* form */
@@ -219,7 +233,6 @@ h1{
 .div-inter-input{
     display: flex;
     padding: 10px;
-    /* border: 2px solid blue;   */
     margin: 30px;
     margin-top: 60px;
     justify-content: center;
@@ -233,7 +246,6 @@ h1{
 }
 
 .div-input{
-    /* border: 2px solid salmon; */
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -248,17 +260,20 @@ h1{
 }
 #card{
     padding:60px 0 20px 0 ;
-    /* border: 2px solid red; */
     display: flex;
     justify-content: space-around;
     width: 100%;
+
 }
 .card{
+    display: flex;
+    align-items: center;
     border: 3px solid #0D0B10;;
     height: 300px;
     width: 250px;
 }
 .card:hover{
+    
     border: 3px solid white;
     cursor: pointer;
 }
@@ -271,8 +286,3 @@ h1{
 #complexo{
     background-color: #a92372;
 }
-
-/*
-1994BE
-C32394
-F8EE5C */
