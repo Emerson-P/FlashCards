@@ -13,8 +13,7 @@ module.exports.cadastro = function(app,req,res){
 }
 
 module.exports.homeLogin = function(app,req,res){
-    const dir_html_index = path.join(__dirname,'View','html')
-    res.render(dir_html_index+'/homeLogin')
+    res.render(dir_html+'/homeLogin')
 }
 
 
@@ -22,8 +21,6 @@ module.exports.dadosCad = function(app,req,res){
     const tabela_user = app.Model.User_model
    
     tabela_user.insert(req.body.nome,req.body.email,req.body.senha)//Fazer verificação se funcionou
-
-
     res.redirect('/login')
     
 }
