@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,#novodeck{
+    background-color:#0E1527 ;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+a{
+    color: white;
+    text-decoration: none;
+    font-size:larger;
+}
+.nav-link{
+    margin: 0 2% 0 2%;
+    color: white;
+}
+.d-flex{
+    text-align: center;
+    align-items: center;
+}
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+.d-flex .nav-link {
+    width: 50%;
+}
+.navbar-brand{
+    color:#C8FCEA ;
+}
+h4{
+    color: white;
+}
+#barra{
+    background-color:#0E1527 
+}
+button, .btn-primary{
+    color: rgb(255, 255, 255);
+    border: 2px solid #3772FF;
+    background-color: #3772FF;
+    font-size: 17px;
+}
+button:hover{
+    border: 2px solid black;
+}
+.deletar{
+    background-color: #DF2935;
+    border: 2px solid #DF2935;
+}
+.decks .d-flex{
+    background-color: #E6E8E6;
+}

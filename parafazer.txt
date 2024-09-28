@@ -3,3 +3,4 @@ reforçar no banco
 limpar antigo index
 criar novo index com tela de apresentação 
 mudar estilos e cores 
+token expirado 

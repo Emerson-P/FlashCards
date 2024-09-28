@@ -5,26 +5,15 @@
     <title>Seus decks</title>
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/app/deck.css">
+    <link rel="stylesheet" href="css/app/geral.css">
 </head>
 <body>
-
-  <nav class="navbar navbar-expand-lg " id="barra">
+  <nav class="navbar" style="background-color: #0A0B10;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><h3>Cards</h3></a>
-      
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
-          
-          
-        </div>
-      </div>
-      
-      
+        <a class="navbar-brand" href="#"><img src="../imgs/Flash-logo.png"  style="height: 60px;" alt=""></a>
+        <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
     </div>
-</nav>
-
-
+  </nav>  
     
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="p-4">
@@ -60,10 +49,8 @@
           <div>
             <a href="/estudar"><h4>Estudar</h4></a>
           </div>
-            
-          
            <div>
-            <a href="cardIA"><h4>Gerar cards por IA</h4></a>
+            <a href="/cardIA"><h4>Gerar cards por IA</h4></a>
           </div>
         </div>
       </nav>
@@ -81,15 +68,11 @@
                     <div>
                       <input name="titulo" id="tit<%= element[2] %>" disabled  type="text" value="<%= element[1] %>">
                     </div>
-                    
                 </div>
-                
                 <div class="deck-btn">
-                  <button type="button" name="del" id="del<%= element[2] %>">Deletar</button>
+                  <button type="button" name="del" id="del<%= element[2] %>" class="deletar">Deletar</button>
                   <button type="button"  id="<%= element[2] %>"  name="btn"  >Editar</button>
                 </div>
-                
-                <!-- <h5>texto</h5> -->
             </div>
             <% }) %>
         </div>
