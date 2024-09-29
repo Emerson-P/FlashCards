@@ -38,22 +38,21 @@
 
 
 
-    <div class="center">
-        <div class="carousel">
-                <div class="carousel-item active">
-                    <h5 id="titulo<%= element[2] %>" class="titulo"><%= element[0] %></h5>
-                    <h5 id="desc<%= element[2] %>" class="desc"><%= element[1] %></h5>
-    
-                    <button name="show" id="<%= element[2] %>" class="showBtn">Ver resposta</button>
-                </div>
-        </div>
-    
-        <div class="btn">
-            <button  id="prevBtn">Anterior</button>
-            <button  id="nextBtn">Próximo</button>
-        </div>
-    </div>
-    
+    <div class="carousel">
+      <% data['data'].forEach(element => { %>
+          <div class="carousel-item active">
+              <h5 id="titulo<%= element[2] %>" class="titulo"><%= element[0] %></h5>
+              <h5 id="desc<%= element[2] %>" class="desc"><%= element[1] %></h5>
+              <button name="show" id="<%= element[2] %>" class="showBtn">Ver resposta</button>
+          </div>
+      <% }); %>
+  </div>
+  <div>
+      <button  id="prevBtn">Anterior</button>
+      <button  id="nextBtn">Próximo</button>
+  </div>
+  
+
     <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="../js/app/estudar.js"></script>
 </body>

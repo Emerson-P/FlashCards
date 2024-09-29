@@ -292,6 +292,7 @@ module.exports.estudar = function(app,req,res){
 
     const atribute = ['titulo','desc','id']
 
+    console.log(id_deck)
     const where = {
         id_deck
     }
@@ -301,7 +302,7 @@ module.exports.estudar = function(app,req,res){
         var lista = []
 
         resposta.forEach(element => {
-
+            
             var card = [element['dataValues']['titulo'],element['dataValues']['desc'],element['dataValues']['id']]
             lista.push(card)
         });
@@ -310,7 +311,7 @@ module.exports.estudar = function(app,req,res){
         id: id_deck,
         lista
         }
-
+        
         
         res.render(dir_html+`/estudar`, {data})
 

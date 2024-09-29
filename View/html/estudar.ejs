@@ -6,25 +6,16 @@
     <title>Estudar</title>
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/app/estudar.css">
-    
+    <link rel="stylesheet" href="css/app/geral.css">
 </head>
 <body>
     
-  <nav class="navbar navbar-expand-lg " id="barra">
+  <nav class="navbar" style="background-color: #0A0B10;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"><h3>Cards</h3></a>
-      
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
-          
-          
-        </div>
-      </div>
-      
-      
+        <a class="navbar-brand" href="#"><img src="../imgs/Flash-logo.png"  style="height: 60px;" alt=""></a>
+        <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
     </div>
-</nav>
+  </nav>  
 
 
 
@@ -36,21 +27,20 @@
 
 
 
-    <div class="center">
-        <div class="carousel">
-                <div class="carousel-item active">
-                    <h5 id="titulo  " class="titulo"></h5>
-                    <h5 id="desc" class="desc"></h5>
-    
-                    <button name="show" id="" class="showBtn">Ver resposta</button>
-                </div>
-        </div>
-    
-        <div class="btn">
-            <button  id="prevBtn">Anterior</button>
-            <button  id="nextBtn">Próximo</button>
-        </div>
-    </div>
+    <div class="carousel">
+      <% data['lista'].forEach(element => { %>
+          <div class="carousel-item active">
+              <h5 id="titulo<%= element[2] %>" class="titulo"> <%- element[0] %> </h5>
+              <h5 id="desc<%= element[2] %>" class="desc"><%= element[1] %></h5>
+              <button name="show" id="<%= element[2] %>" class="showBtn">Ver resposta</button>
+          </div>
+      <% }); %>
+  </div>
+  <div>
+      <button  id="prevBtn">Anterior</button>
+      <button  id="nextBtn">Próximo</button>
+  </div>
+  
     
     <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="js/app/estudar.js"></script>
