@@ -23,47 +23,54 @@
     </div>
     
 
-    <div class="decks">
+    <div class="decks" >
 
-      
         <div class="d-flex">
-            <div class="deck">
-                <div class="deck-text">
-                    <div class="tit">
-                        <h5>texto</h5>
+        <form action="/addCardIa?id=<%- data['id'] %>" method="post">
+
+            <% var index = 0 %>
+            <% data['cards'].forEach(element => {%>
+
+                <% index += 1 %>
+                <div class="deck" id="<%-`div${index}` %>"name="deck">
+                    <div class="deck-text">
+                        <div>
+                          <input class="titu" name="<%`titulo${index}` %>" id="tit<%= element[2] %>" disabled  type="text" value="<%= element[0] %>">
+                        </div>
+                        <div>
+                          <input name="<%`desc${index}` %>" id="tit<%= element[2] %>" disabled  type="text" value="<%= element[1] %>">
+                        </div>
                     </div>
-                    <div class="desc">
-                        <h5>texto</h5>
+                    <div class="deck-btn">
+                        <button type="button" id="<%`${index}` %>" onclick="deletar(this.id)"  class="deletar">deletar</button>
                     </div>
                 </div>
-                <div class="deck-btn">
-                    <button type="button" class="btn btn-danger">Danger</button>
-                </div>
-            </div>
-        </div>
-            
-      </div>
-
-
-    <form action="/addCardIa?id=<%- data['id'] %>" method="post">
-
-                <% 
-                var index = 0
-                data['cards'].forEach(element => {%>
-                    index += 1 
-                    <div id="<%-`div${index}` %>"></div>
-                        <input type="text" name="<%`titulo${index}` %>" value=" <%- element[0] %>" style="width: 500px;height: 200px;">
-                        <input type="text" name="<%`desc${index}` %>" value=" <%- element[1] %>" style="width: 500px;height: 200px;">
-                        <button type="button" id="<%`${index}` %>" onclick="deletar(this.id)">deletar</button>
-                    </div>
-                <%})%>;
+             
+            <%}) %>
             <button type="submit">Enviar</button>
-    </form>
+        </form>
+        </div>   
+    </div>
+
+
+    
 
     <script>
         function deletar(id) {
             let div = document.getElementById(`div${id}`)
-            div.parentNode.removeChild(div)
+            let decks_list = document.getElementsByName('deck')
+            
+
+            decks_list.forEach( (element) => {
+                // console.log(element)
+                console.log(element.id)
+                console.log(id)
+                if(element.id == id){
+                    // element.parentNode.removeChild(div)
+                    console.log('teste')
+                }
+            });
+           
         }
     </script>
     <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
