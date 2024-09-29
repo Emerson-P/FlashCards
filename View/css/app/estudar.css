@@ -3,8 +3,8 @@
     padding: 0;
 }
 
-body,#novodeck{
-    background-color:#2C2C2C ;
+h4,h5,h6,h1{
+    color: black;
 }
 
 .nav-link{
@@ -27,9 +27,7 @@ body,#novodeck{
 .navbar-brand{
     color:#C8FCEA ;
 }
-h4,h5,h6,h1{
-    color: white;
-}
+
 #barra{
     background-color: #2A272A;
 }
@@ -47,15 +45,25 @@ h4,h5,h6,h1{
 }
 
 .carousel {
-    width: 40%;
-    height: 70%;
+    width: 400px;
+    height: 600px;
     overflow: hidden;
-    border: 2px solid black; 
     position: relative;
+}
+.center-div{
+    display: flex;
+    justify-content: center;
+}
+.container-Carousel{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
 }
 
 .carousel-item {
-    background-color: #0d285d;
+    background-color: #E6E8E6;
     display: none;
     width: 100%;
     height: 100%;
@@ -71,19 +79,15 @@ h4,h5,h6,h1{
 }
 
 .carousel button {
-
-    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
     width: 100%;
 }
 
-
-
-
-h5{
-    border: 2px solid black;
-}
-
 .titulo{
+    margin-top: 20px;
     height: 30%;
 }
 
@@ -92,23 +96,31 @@ h5{
     height: 55%;
 }
 .desc{
-    color: white;
+    color: #E6E8E6;
+    user-select: none
+}
+.desc:hover{
+    cursor:default;
 
 }
+
 .show{
     color: rgb(0, 0, 0);    
 }
-.btn{
-    flex-direction: row;
-    /* border: 2px solid salmon; */
-    width: 100%;
-}
+
 .text-center{
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .btn button{
     height: 50px;
     width: 100px;
+}
+.div-btn{
+    width: 100%;
+    display: flex;
+    justify-content:space-around;
+    margin-top: 40px;
 }

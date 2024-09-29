@@ -26,7 +26,7 @@ module.exports = function(app){
     })
 
     app.get('/login',function(req,res){
-        app.Controller.User_controller.login(app,req,res)
+        app.Controller.User_controller.homeLogin(app,req,res)
     })
     app.post('/dadosCadastro',function(req,res){
         app.Controller.User_controller.dadosCad(app,req,res)

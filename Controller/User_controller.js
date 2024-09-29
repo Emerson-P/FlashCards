@@ -292,7 +292,6 @@ module.exports.estudar = function(app,req,res){
 
     const atribute = ['titulo','desc','id']
 
-    console.log(id_deck)
     const where = {
         id_deck
     }
