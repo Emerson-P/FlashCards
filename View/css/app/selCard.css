@@ -93,7 +93,8 @@ h4{
 .decks .d-flex{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     border-radius: 30px;
     background-color: #E6E8E6;
     width: 90%;
@@ -106,6 +107,7 @@ h4{
     border-radius: 20px;
     width: 98%;
     margin: 10px;
+    margin-top: 20px;
     border: 4px solid #EE7A3B;
 }
 
@@ -143,4 +145,16 @@ input{
     border-radius: 20px;
     background-color:#E6E8E6 ;
     border: 0px;
+}
+
+.div-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div-btn button {
+    margin-top: 10px;
+    padding: 5px 10px 5px 10px;
+    width: 70%;
+    border-radius: 10px;
 }

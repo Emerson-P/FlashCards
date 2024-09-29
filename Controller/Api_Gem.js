@@ -34,8 +34,8 @@ class IA{
     // const response = await result.response;
     // const text = response.text();
     // // console.log(text)
-
-    text = "$**Título:** Frutas Cítricas**Descrição:** Frutas com alto teor de vitamina C e sabor azedo, como laranja, limão e lima.$$**Título:** Frutas Tropicais**Descrição:** Frutas que se desenvolvem em climas quentes e úmidos, como abacaxi, banana e manga.$$**Título:** Frutas Vermelhas**Descrição:** Frutas com cores vibrantes, como morango, framboesa e cereja.$$**Título:** Frutas com Caroço**Descrição:** Frutas que possuem uma semente grande e dura no centro, como pêssego, ameixa e nectarina.$"
+    
+    var text = "$**Título:** Frutas Cítricas**Descrição:** Frutas com alto teor de vitamina C e sabor azedo, como laranja, limão e lima.$$**Título:** Frutas Tropicais**Descrição:** Frutas que se desenvolvem em climas quentes e úmidos, como abacaxi, banana e manga.$$**Título:** Frutas Vermelhas**Descrição:** Frutas com cores vibrantes, como morango, framboesa e cereja.$$**Título:** Frutas com Caroço**Descrição:** Frutas que possuem uma semente grande e dura no centro, como pêssego, ameixa e nectarina.$"
 
 
     return text

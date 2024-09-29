@@ -16,14 +16,7 @@
         </div>
     </nav>  
         
-
-
-    <div class="center">
-        <h2>Exclua os cards indesejados, o restante sera adicionado ao deck.</h2>
-    </div>
-    
-
-    <div class="decks" >
+    <div class="decks" style="margin-top: 40px;" >
 
         <div class="d-flex">
         <form action="/addCardIa?id=<%- data['id'] %>" method="post">
@@ -42,12 +35,15 @@
                         </div>
                     </div>
                     <div class="deck-btn">
-                        <button type="button" id="<%`${index}` %>" onclick="deletar(this.id)"  class="deletar">deletar</button>
+                        <button type="button" id="<%- `${index}` %>" onclick="deletar(this.id)"  class="deletar">Descartar</button>
                     </div>
                 </div>
              
             <%}) %>
-            <button type="submit">Enviar</button>
+            <div class="div-btn">
+                <button type="submit" >Adicionar ao deck</button>    
+            </div>
+            
         </form>
         </div>   
     </div>
@@ -60,14 +56,14 @@
             let div = document.getElementById(`div${id}`)
             let decks_list = document.getElementsByName('deck')
             
-
+            console.log(`div${id}`)
             decks_list.forEach( (element) => {
-                // console.log(element)
-                console.log(element.id)
-                console.log(id)
-                if(element.id == id){
-                    // element.parentNode.removeChild(div)
-                    console.log('teste')
+                // // console.log(element)
+                // console.log(element.id)
+
+                if(element.id == `div${id}`){
+                    element.parentNode.removeChild(div)
+                    // console.log('teste')
                 }
             });
            
