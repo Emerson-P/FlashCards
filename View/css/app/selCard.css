@@ -1,0 +1,160 @@
+
+/* Nav Bar */
+
+
+.nav-link{
+    margin: 0 2% 0 2%;
+    color: white;
+}
+.d-flex{
+    text-align: center;
+    align-items: center;
+}
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+}
+.d-flex .nav-link {
+    width: 50%;
+}
+.navbar-brand{
+    color:#C8FCEA ;
+}
+h4{
+    color: white;
+}
+#barra{
+    background-color: #2A272A;
+}
+
+
+/*  Criar card  */
+
+
+#ndeck{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+#ndeck h4 {
+    margin: 1% 0 1% 10%;
+}
+
+.col-auto label{
+    color: white;
+}
+.col-auto button{
+    color: black;
+    border: 3px solid #00C6CF;
+    background-color: #00C6CF;
+}
+
+.mb-3{
+    /* border: 2px solid blue; */
+    width: 70%;
+}
+#criarCard{
+    display: flex;
+    justify-content: center;
+}
+.div-center{
+    display: flex;
+    justify-content: center;
+    /* width: 30%; */
+}
+.div-center button {
+    width: 30%;
+}
+.mb-3 label {
+    color: white;
+}
+
+#ndeck div {
+    width: 32%;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* cards */
+
+/*Decks  */
+
+.decks{
+    display: flex;
+    min-height: 75%;
+    text-align: center;
+    justify-content: center;
+}
+
+.decks .d-flex{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 30px;
+    background-color: #E6E8E6;
+    width: 90%;
+}
+.deck {
+    display: flex;
+    height: 100px;
+    flex-direction: row;
+    justify-content: flex-end;
+    border-radius: 20px;
+    width: 98%;
+    margin: 10px;
+    margin-top: 20px;
+    border: 4px solid #EE7A3B;
+}
+
+.deck h5 {
+    margin: 20px 0 10px 0 ;
+}
+.deck-btn{
+    margin: 10px;
+}
+.deck-btn button {
+    margin: 5px;
+    width: 100px;
+    border-radius: 10px;
+}
+.deck-text{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+
+
+
+a{
+    text-decoration: none;
+}
+input{
+    margin-left: 10px;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    width: 1000px;
+    border-radius: 20px;
+    background-color:#E6E8E6 ;
+    border: 0px;
+}
+
+.div-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div-btn button {
+    margin-top: 10px;
+    padding: 5px 10px 5px 10px;
+    width: 70%;
+    border-radius: 10px;
+}

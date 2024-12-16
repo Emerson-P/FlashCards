@@ -1,0 +1,2 @@
+Corrigir consulta a bancos
+deletar decks

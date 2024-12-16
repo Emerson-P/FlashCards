@@ -1,0 +1,75 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Selecione seus cards </title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app/selCard.css">
+    <link rel="stylesheet" href="css/app/geral.css">
+</head>
+<body>
+
+    <nav class="navbar" style="background-color: #0A0B10;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../imgs/Flash-logo.png"  style="height: 60px;" alt=""></a>
+            <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
+        </div>
+    </nav>  
+        
+    <div class="decks" style="margin-top: 40px;" >
+
+        <div class="d-flex">
+        <form action="/addCardIa?id=<%- data['id'] %>" method="post">
+
+            <% var index = 0 %>
+            <% data['cards'].forEach(element => {%>
+
+                <% index += 1 %>
+                <div class="deck" id="<%-`div${index}` %>"name="deck">
+                    <div class="deck-text">
+                        <div>
+                          <input class="titu" name="<%`titulo${index}` %>" id="tit<%= element[2] %>" disabled  type="text" value="<%= element[0] %>">
+                        </div>
+                        <div>
+                          <input name="<%`desc${index}` %>" id="tit<%= element[2] %>" disabled  type="text" value="<%= element[1] %>">
+                        </div>
+                    </div>
+                    <div class="deck-btn">
+                        <button type="button" id="<%- `${index}` %>" onclick="deletar(this.id)"  class="deletar">Descartar</button>
+                    </div>
+                </div>
+             
+            <%}) %>
+            <div class="div-btn">
+                <button type="submit" >Adicionar ao deck</button>    
+            </div>
+            
+        </form>
+        </div>   
+    </div>
+
+
+    
+
+    <script>
+        function deletar(id) {
+            let div = document.getElementById(`div${id}`)
+            let decks_list = document.getElementsByName('deck')
+            
+            console.log(`div${id}`)
+            decks_list.forEach( (element) => {
+                // // console.log(element)
+                // console.log(element.id)
+
+                if(element.id == `div${id}`){
+                    element.parentNode.removeChild(div)
+                    // console.log('teste')
+                }
+            });
+           
+        }
+    </script>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/app/decks.js"></script>
+</body>
+</html>

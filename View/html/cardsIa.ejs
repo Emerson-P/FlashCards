@@ -1,0 +1,89 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards IA</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app/cardsia.css">
+    <link rel="stylesheet" href="../css/app/geral.css">
+</head>
+<body>
+
+    <nav class="navbar" style="background-color: #0A0B10;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="../imgs/Flash-logo.png"  style="height: 60px;" alt=""></a>
+            <a class="nav-link" href="#"><h4><a href="/decks">Meus decks</a></h4></a>
+        </div>
+    </nav> 
+
+    <div class="div-img">
+        <h1>
+            Chegou a hora de cria seus FlashCards: 
+        </h1> 
+    </div>
+
+    <div class="div-ai">
+        <form action="/gerarIA?id=<%= data['id'] %>" method="post" class="form">
+
+            <div class="div-inter-input">
+                <label for="tema"><h5>Primeiro, digite um tema:</h5></label>
+                <input type="text" name="tema" placeholder="Ex: Como ocorre a fotossíntese " id="input-tema">
+            </div>
+            <div class="div-inter-input" id="input">
+                <div>
+                    <h5>Segundo, selecione a complexidade da linguagem:</h5>
+                </div>
+
+
+                <div id="card">
+
+                    <div class="card" id="resumo" name="card">
+                        <h1  id="resumo" >Resumida</h1>
+                        <div class="card-body"  id="resumo" >
+                          <p class="card-text"  id="resumo" ><h5 id="resumo">Linguagem curta e direta, eliminando detalhes supérfluos.</h5></p>
+                        </div>
+                    </div>
+
+                    <div class="card" id="simples" name="card" >
+                        <h1 style="color: black;" id="simples">Simplificada</h1>
+                        <div class="card-body" id="simples">
+                          <p class="card-text" id="simples"><h5 style="color: black;" id="simples">Linguagem clara e fácil de entender, sem termos complexos.</h5></p>
+                        </div>
+                    </div>
+                    <div class="card" id="complexo" name="card">
+                        <h1 id="complexo">Complexa</h1>
+                        <div class="card-body" id="complexo">
+                          <p class="card-text" id="complexo"><h5 id="complexo">Linguagem com vocabulário avançado e frases longas, adequada para explicar ideias profundas.</h5></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="div-input">
+                    <input class="check" name="ling" disabled checked type="checkbox" id="resumo">
+                    <input class="check" name="ling" disabled type="checkbox" id="simples">
+                    <input class="check" name="ling" disabled type="checkbox" id="complexo" >
+                </div>
+                
+
+            </div>
+            <div class="div-inter-input">
+                <label for="tema"><h5>Por ultimo, selecione a quantidade de Flashcards:</h5></label>
+                <select name="num_cards" >
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+            <div class="div-inter-input"  style="align-items: center;">
+                
+                <label for="tema"><h5>Pronto, esta na hora de </h5></label>
+                <button type="submit" class="btn btn-primary">Criar</button>
+            </div>
+        </form>
+    </div>
+    
+    </form>
+    <script src="../js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="../js/app/cardsIa.js"></script>
+</body>
+</html>
